@@ -6,9 +6,27 @@ import { createDrawerNavigator, DrawerItems } from 'react-navigation';
 
 
 export default class Menu extends React.Component {
+
+    static navigationOptions = {
+        title: 'Menu',
+        headerStyle: {
+            backgroundColor: '#ffde22',
+        },
+        headerTintColor: '#ff414e',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize: 25
+    
+        }
+    };
+
     render(){
         return (
-            <View>
+            <View style={styles.container}>
+                <Button
+                    title="Go to Profile"
+                    onPress={() => this.props.navigation.navigate('Profile')}
+                />
                 <Text style={styles.container}>Menu</Text>
             </View>
         )
@@ -17,10 +35,12 @@ export default class Menu extends React.Component {
 
 }
 
-const styles = StyleSheet.create({
-    container: {
-        width: '100%',
-        height: '100%',
-        backgroundColor: '#fff'
+const styles= StyleSheet.create({
+    container:{
+      flex: 1,
+      backgroundColor: '#ffde22',
+      alignItems: "center",
+      justifyContent: 'flex-start',
+      paddingTop: 24
     }
 })

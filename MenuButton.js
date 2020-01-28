@@ -6,39 +6,29 @@ import { createDrawerNavigator, DrawerItems, RouteConfigs, DrawerNavigatorConfig
 import Menu from './Menu'
 
 
-export default class MenuButton extends React.Component{
+export default function MenuButton({ navigation }) {
 
-    state= {
-        clicked: false
-    }
     
-    render(){
+
+    return(
+        <View>
+            <Ionicons
+                name='md-menu'
+                color="#000000"
+                size={32}
+                style={styles.menuIcon}
+
+            />
+
+        </View>
         
-        let view = null
-        if (this.state.clicked) {
-            view = <Menu/>
-        } 
-
-        return(
-            <View>
-                <Ionicons
-                    name='md-menu'
-                    color="#000000"
-                    size={32}
-                    style={styles.menuIcon}
-                    onPress={()=> this.setState({ clicked: !this.state.clicked})}
-                />
-                {view}
-
-            </View>
-            
-            
-            
-            
-            
-        )
+        
+        
+        
+        
+    )
     }
-}
+
 
 const styles = StyleSheet.create({
     menuIcon:{

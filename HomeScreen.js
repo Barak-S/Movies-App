@@ -22,10 +22,11 @@ static navigationOptions = {
     headerTitleStyle: {
         fontWeight: 'bold',
         fontSize: 25
+
     },
     headerLeft: () => (
         <MenuButton
-            
+            onPress={() => this.props.navigation.navigate('Menu')}
         />
         ),
     };
@@ -36,6 +37,7 @@ static navigationOptions = {
     selectedMovie: {},
     menu: false
   }
+
 
   handleSubmit =()=> {
     fetch(`${apiUrl}&s=${this.state.searchTerm.split(" ").join("&")}`)
@@ -71,7 +73,11 @@ static navigationOptions = {
   
   render() {
     return (
-      <View style={styles.container}>
+        <View style={styles.container}>
+        <Button
+          title="Go to Menu"
+          onPress={() => this.props.navigation.navigate('Menu')}
+        />
         <TextInput
           style={styles.searchBox}
           placeholder={this.state.searchTerm}
