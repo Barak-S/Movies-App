@@ -40,13 +40,14 @@ export default class App extends React.Component {
   styles= StyleSheet.create({
     container:{
       flex: 1,
-      backgroundColor: '#FF851B',
+      backgroundColor: '#ffde22',
       alignItems: "center",
       justifyContent: 'flex-start',
       paddingTop: 65
     },
     title: {
-      color: '#fff',
+      color: '#ff414e',
+      fontWeight: '700',
       fontSize: 32,
       textAlign: "center",
       marginBottom: 20
@@ -64,20 +65,20 @@ export default class App extends React.Component {
     },
     popup: {
       padding: 50,
-      backgroundColor: '#FF851B',
+      backgroundColor: '#ffde22',
       flex:1,
     },
     popTitle:{
       fontSize: 29,
       fontWeight: '600',
-      color: '#fff',
+      color: '#ff414e',
     },
     closeBtn:{
       padding: 20,
       fontSize: 24,
       fontWeight: '600',
       color: '#fff',
-      backgroundColor: '#445565'
+      backgroundColor: '#ff414e'
     }
 
   })
@@ -85,7 +86,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={this.styles.container}>
-        <Text style ={this.styles.title}>Movie Search</Text>
+        <Text style ={this.styles.title}>MoviSearch</Text>
         <TextInput
           style={this.styles.searchBox}
           placeholder={this.state.searchTerm}
@@ -108,22 +109,25 @@ export default class App extends React.Component {
           transparent={false}
           visible={(typeof this.state.selectedMovie.Title != "undefined") ? true : false}
         >
+          <ScrollView>
           <View style={this.styles.popup}>
             <Text style={this.styles.popTitle}>{this.state.selectedMovie.Title}</Text>
-            <Text style={{color: "#fff", fontSize: 20 }}>Rating: {this.state.selectedMovie.imdbRating}</Text>
+            <Text style={{color: "#445565", fontSize: 20 }}>Rating: {this.state.selectedMovie.imdbRating}</Text>
 
             <Image
               source={{uri: this.state.selectedMovie.Poster}}
               style={{width: '100%', height: 465, marginTop: 49}}
               resizeMode= "cover"
             />
-            <Text style={{color: "#fff", fontSize: 18, fontWeight: '450', marginTop: 20}}>{this.state.selectedMovie.Plot}</Text>
+            <Text style={{color: "#445565", fontSize: 18, fontWeight: '450', marginTop: 20}}>{this.state.selectedMovie.Plot}</Text>
           </View>
+          </ScrollView>
           <TouchableHighlight
             onPress={()=> this.setState({ selectedMovie : {} })}
           >
             <Text style={this.styles.closeBtn}>Close</Text>
           </TouchableHighlight>
+
         </Modal>
         
       </View> 

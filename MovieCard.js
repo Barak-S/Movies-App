@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TouchableHighlight, Image } from 'react-native';
+import { Text, View, StyleSheet, TouchableHighlight, Image, ScrollView } from 'react-native';
 
 // import StyleSheet from react-native when using StyleSheet.create() to define several style in one place
 
@@ -16,7 +16,7 @@ export default class MovieCard extends Component {
       fontSize: 18,
       fontWeight: '600',
       padding: 20,
-      backgroundColor: '#445565'
+      backgroundColor: '#ff414e'
     }
   })
 
