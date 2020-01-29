@@ -9,7 +9,7 @@ export default class Profile extends React.Component{
     render(){
         return(
             <View style={styles.container}>
-                <Text>Profile</Text>
+                <Text style={{color: '#fff', fontSize: 24, fontWeight: '600' }}>Barak Saidoff</Text>
             </View>
         )
     }
@@ -18,14 +18,13 @@ export default class Profile extends React.Component{
 const styles= StyleSheet.create({
     container:{
       flex: 1,
-      backgroundColor: '#ffde22',
+      backgroundColor: '#333',
       alignItems: "center",
       justifyContent: 'flex-start',
-      paddingTop: 24
+      paddingTop: 24,
+
     }
 })
-
-
 
 
 

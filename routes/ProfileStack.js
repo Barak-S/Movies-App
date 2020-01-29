@@ -8,20 +8,18 @@ import React from 'react'
 
 const screens= {
     
-    About: {
-        screen: About,
+    Profile: {
+        screen: Profile,
         navigationOptions:({ navigation })=>{
             return {
-                headerTitle: ()=> <Header navigation ={navigation} title= '    About    '/>
+                headerTitle: ()=> <Header navigation ={navigation} title= '    Profile    '/>
             }
         }
     }
     
 }
 
-const AboutStack = createStackNavigator(screens)
+const ProfileStack = createStackNavigator(screens)
 
 
-export default AboutStack
-
-
+export default ProfileStack

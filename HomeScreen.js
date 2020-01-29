@@ -42,7 +42,7 @@ export default class HomeScreen extends React.Component {
 
   removeFromWatchLater=(movie)=> {
       let foundMovie = this.state.watchLater.find(element => element.imdbID = movie.imdbID)
-      console.log("removing",foundMovie)
+    //   console.log("removing",foundMovie)
       let newArray = this.state.watchLater.filter(element => element.imdbID !== foundMovie.imdbID)
     this.setState({
         watchLater: newArray
