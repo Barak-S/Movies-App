@@ -4,9 +4,8 @@ import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, Touchable
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from './HomeScreen'
-import Menu from './Menu'
 
-import Navigator from './routes/HomeStack'
+import Navigator from './routes/Drawer'
 
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import SafeAreaView from 'react-native-safe-area-view';

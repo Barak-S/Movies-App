@@ -13,23 +13,24 @@ const apiUrl = "http://www.omdbapi.com/?apikey=a0514b1a"
 
 export default class HomeScreen extends React.Component {
 
-static navigationOptions = {
-    title: 'MoviSearch',
-    headerStyle: {
-        backgroundColor: '#ffde22',
-    },
-    headerTintColor: '#ff414e',
-    headerTitleStyle: {
-        fontWeight: 'bold',
-        fontSize: 25
+// static navigationOptions = {
+//     title: 'MoviSearch',
+//     headerStyle: {
+//         backgroundColor: '#ffde22',
+//     },
+//     headerTintColor: '#ff414e',
+//     headerTitleStyle: {
+//         fontWeight: 'bold',
+//         fontSize: 25
 
-    },
-    headerLeft: () => (
-        <MenuButton
-            onPress={() => this.props.navigation.navigate('Menu')}
-        />
-        ),
-    };
+//     },
+
+//     headerLeft: () => (
+//         <MenuButton
+//             onPress={() => this.props.navigation.navigate('Menu')}
+//         />
+//         ),
+//     };
 
   state={
     searchTerm: 'Enter a Movie...',
