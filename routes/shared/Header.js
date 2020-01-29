@@ -12,7 +12,6 @@ export default function Header({navigation, title}){
         <View style={styles.header}>
             <Ionicons
                 name='md-menu'
-                color="#000000"
                 size={32}
                 style={styles.menuIcon}
                 onPress={openMenu}
@@ -29,19 +28,20 @@ const styles = StyleSheet.create({
         height: '100%',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#fff'
     },
     headerText:{
         fontWeight: 'bold',
-        fontSize: 20,
-        color: '#333',
+        fontSize: 25,
+        color: '#ff414e',
         letterSpacing: 1,
     },
     menuIcon:{
         zIndex: 9,
         position: 'absolute',
         top: 10,
-        left: -66,
+        left: -60,
         color: '#ff414e'
     }
 })

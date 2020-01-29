@@ -7,26 +7,11 @@ import { createDrawerNavigator, DrawerItems } from 'react-navigation';
 
 export default class Menu extends React.Component {
 
-    static navigationOptions = {
-        title: 'Menu',
-        headerStyle: {
-            backgroundColor: '#ffde22',
-        },
-        headerTintColor: '#ff414e',
-        headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 25
-    
-        }
-    };
+
 
     render(){
         return (
             <View style={styles.container}>
-                <Button
-                    title="Go to Profile"
-                    onPress={() => this.props.navigation.navigate('Profile')}
-                />
                 <Text style={styles.container}>Menu</Text>
             </View>
         )

@@ -4,34 +4,24 @@ import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, Touchable
 
 export default class Profile extends React.Component{
 
-    // static navigationOptions = {
-    //     title: 'About',
-    //     headerStyle: {
-    //         backgroundColor: '#ffde22',
-    //     },
-    //     headerTintColor: '#ff414e',
-    //     headerTitleStyle: {
-    //         fontWeight: 'bold',
-    //         fontSize: 25
-    
-    //     }
-    // };
 
     render(){
         return(
-            <View >
-                <Text>About</Text>
+            <View style={styles.container}>
+                <Text style={{color: '#fff', fontSize: 20, fontWeight: '300' }}>React Native Movie Project App</Text>
+                <Text style={{color: '#fff', fontSize: 20, fontWeight: '300' }}>Created by: Barak Saidoff</Text>
             </View>
         )
     }
 }
 
-// const styles= StyleSheet.create({
-//     container:{
-//       flex: 1,
-//       backgroundColor: '#ffde22',
-//       alignItems: "center",
-//       justifyContent: 'flex-start',
-//       paddingTop: 24
-//     }
-// })
+const styles= StyleSheet.create({
+    container:{
+      flex: 1,
+      backgroundColor: '#333',
+      alignItems: "center",
+      justifyContent: 'flex-start',
+      paddingTop: 24,
+
+    }
+})

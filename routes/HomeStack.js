@@ -15,12 +15,6 @@ const screens= {
                 headerTitle: ()=> <Header navigation ={navigation} title= "MoviSearch"/>
             }
         }
-    },
-    Menu: {
-        screen: Menu
-    },
-    Profile:{
-        screen: Profile
     }
 }
 
