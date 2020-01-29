@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, TouchableHighlight, Modal, Dimensions } from 'react-native';
 import MovieCard from './MovieCard'
-import watchLater from './WatchLater'
 import WatchLater from './WatchLater';
+import MovieContainer from './MoviesContainer'
 
 
 const apiUrl = "http://www.omdbapi.com/?apikey=a0514b1a"
@@ -14,7 +14,6 @@ export default class HomeScreen extends React.Component {
   state={
     searchTerm: 'Enter a Movie...',
     movies: [],
-    selectedMovie: {},
     watchLater: []
   }
 
@@ -35,52 +34,26 @@ export default class HomeScreen extends React.Component {
     })
   }
 
-  openPopup = id => {
-    fetch(apiUrl+ "&i=" + id)
-    .then(resp=>resp.json())
-    .then(data=> {
-      this.setState({
-        selectedMovie: data
-      })
-    })
-  }
-
   watchLater=(movie)=>{
     this.setState({
         watchLater: [...this.state.watchLater, movie]
-    },()=>console.log(this.state.watchLater))
+    })
   }
 
+  removeFromWatchLater=(movie)=> {
+      let foundMovie = this.state.watchLater.find(element => element.imdbID = movie.imdbID)
+      console.log("removing",foundMovie)
+      let newArray = this.state.watchLater.filter(element => element.imdbID !== foundMovie.imdbID)
+    this.setState({
+        watchLater: newArray
+    })
+  }
+
+  clearMovies=()=> {
+    this.setState({ movies: [] })
+  }
   
   render() {
-
-    let view;
-    if(this.state.movies.length === 0){
-        view = <WatchLater watchLater={this.state.watchLater} popUp={this.openPopup}/>
-    } else {
-        view = <View style={styles.container}>
-                <ScrollView style={styles.results}>
-
-                {this.state.movies.map(movie=> (
-                    <MovieCard
-                    key={movie.imdbID}
-                    movie={movie}
-                    onPress={this.openPopup}
-                    />)
-                )}
-                 <View>
-                    <TouchableHighlight
-                    
-                    onPress={()=> this.setState({ movies: [] })}
-                >
-                    <Text style={styles.closeBtn}>Home</Text>
-                </TouchableHighlight>
-                </View>
-                <View style={{height: 110}}></View>
-
-            </ScrollView>
-        </View>
-    }
     
     return (
         <View style={styles.container}>
@@ -90,40 +63,18 @@ export default class HomeScreen extends React.Component {
             onChangeText={(text)=> this.handleChange(text)}
             onSubmitEditing={this.handleSubmit}
             />
-
-            <View>{view}</View>
-            <Modal 
-            style={styles.modal}
-            animationType= "slide"
-            transparent={false}
-            visible={(typeof this.state.selectedMovie.Title != "undefined") ? true : false}
-            >
-            <ScrollView>
-            <View style={styles.popup}>
-                <Text style={styles.popTitle}>{this.state.selectedMovie.Title}</Text>
-                <Text style={{color: "#fff", fontSize: 20 }}>Rating: {this.state.selectedMovie.imdbRating}</Text>
-
-                <Image
-                source={{uri: this.state.selectedMovie.Poster}}
-                style={{width: '100%', height: 465, marginTop: 49}}
-                resizeMode= "cover"
-                />
-                <Text style={{color: "#fff", fontSize: 18, fontWeight: '400', marginTop: 20}}>{this.state.selectedMovie.Plot}</Text>
-    
-                <TouchableHighlight onPress={()=>this.watchLater(this.state.selectedMovie)} style={styles.watchLater}>
-                    <Text style={{textAlign: "center", fontSize: 19, fontWeight:'500', color: "#fff"}}>Watch Later</Text>
-                </TouchableHighlight>
-
-            </View>
-            </ScrollView>
-            <TouchableHighlight
-                onPress={()=> this.setState({ selectedMovie : {}, searchTerm: '' })}
-            >
-                <Text style={styles.closeBtn}>Close</Text>
-            </TouchableHighlight>
-
-            </Modal>
-        
+            {this.state.movies.length !== 0 ?
+            <MovieContainer
+                movies={this.state.movies}
+                clearMovies={this.clearMovies}
+                watchLater={this.watchLater}
+            />
+                :
+            <WatchLater
+                watchLater={this.state.watchLater}
+                remove={this.removeFromWatchLater}
+            />
+            }
         </View> 
       )
     }

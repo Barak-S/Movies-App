@@ -11,10 +11,10 @@ const screens= {
         screen: About,
         navigationOptions:({ navigation })=>{
             return {
-                headerTitle: ()=> <Header navigation ={navigation} title='About'/>
+                headerTitle: ()=> <Header navigation ={navigation} title= '    About    '/>
             }
         }
-    }
+    } 
 }
 
 const AboutStack = createStackNavigator(screens)

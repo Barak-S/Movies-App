@@ -1,10 +1,10 @@
-import React from 'react'
-import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, TouchableHighlight, Modal, Dimensions, TouchableHighlightBase } from 'react-native';
+import React from 'react';
+import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, TouchableHighlight, Modal, Dimensions } from 'react-native';
 import MovieCard from './MovieCard'
 
 const apiUrl = "http://www.omdbapi.com/?apikey=a0514b1a"
 
-export default class WatchLater extends React.Component{
+export default class MovieContainer extends React.Component{
 
     state={
         selectedMovie: {}
@@ -22,22 +22,26 @@ export default class WatchLater extends React.Component{
 
     render(){
 
-
         return (
-            <View>
-                <Text style={{fontSize: 32, color: '#fff',textAlign: "center", fontWeight: '600'}}>Your Watch Later</Text>
-                
-                <View style={styles.container}>
+            <View style={styles.container}>
                 <ScrollView style={styles.results}>
 
-                {this.props.watchLater.map(movie=> (
+                {this.props.movies.map(movie=> (
                     <MovieCard
                     key={movie.imdbID}
                     movie={movie}
                     onPress={this.openPopup}
                     />)
                 )}
-                 
+                 {this.props.movies.length !==0 &&
+                 <View>
+                    <TouchableHighlight
+                    
+                    onPress={()=> this.props.clearMovies()}
+                    >
+                    <Text style={styles.closeBtn}>Home</Text>
+                    </TouchableHighlight>
+                </View>}
                 <View style={{height: 110}}></View>
 
                 </ScrollView>
@@ -59,8 +63,8 @@ export default class WatchLater extends React.Component{
                         />
                         <Text style={{color: "#fff", fontSize: 18, fontWeight: '400', marginTop: 20}}>{this.state.selectedMovie.Plot}</Text>
         
-                        <TouchableHighlight onPress={()=>{ this.props.remove(this.state.selectedMovie); this.setState({selectedMovie: {}}); }} style={styles.watchLater}>
-                            <Text style={{textAlign: "center", fontSize: 19, fontWeight:'500', color: "#fff"}}>Remove from Watch Later</Text>
+                        <TouchableHighlight onPress={()=>this.props.watchLater(this.state.selectedMovie)} style={styles.watchLater}>
+                            <Text style={{textAlign: "center", fontSize: 19, fontWeight:'500', color: "#fff"}}>Watch Later</Text>
                         </TouchableHighlight>
 
                     </View>
@@ -73,9 +77,6 @@ export default class WatchLater extends React.Component{
                     </TouchableHighlight>
 
                 </Modal>
-            </View>
-
-
             </View>
         )
     }
