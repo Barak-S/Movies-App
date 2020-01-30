@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, TouchableHighlight, Modal, Dimensions } from 'react-native';
+
 import MovieCard from './MovieCard'
 
 const apiUrl = "http://www.omdbapi.com/?apikey=a0514b1a"
@@ -35,12 +36,7 @@ export default class MovieContainer extends React.Component{
                 )}
                  {this.props.movies.length !==0 &&
                  <View>
-                    <TouchableHighlight
                     
-                    onPress={()=> this.props.clearMovies()}
-                    >
-                    <Text style={styles.closeBtn}>Home</Text>
-                    </TouchableHighlight>
                 </View>}
                 <View style={{height: 110}}></View>
 
@@ -88,7 +84,7 @@ const styles= StyleSheet.create({
       backgroundColor: '#333',
       alignItems: "center",
       justifyContent: 'flex-start',
-      paddingTop: 24
+
     },
     title: {
       color: '#ff414e',
@@ -103,7 +99,6 @@ const styles= StyleSheet.create({
       width: '92%',
       backgroundColor: '#fff',
       borderRadius: 15,
-      marginBottom: 40
     },
     results: {
       flex: 1,

@@ -3,6 +3,8 @@ import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, Touchable
 import MovieCard from './MovieCard'
 import WatchLater from './WatchLater';
 import MovieContainer from './MoviesContainer'
+import { Ionicons } from '@expo/vector-icons'
+
 
 
 const apiUrl = "http://www.omdbapi.com/?apikey=a0514b1a"
@@ -64,11 +66,20 @@ export default class HomeScreen extends React.Component {
             onSubmitEditing={this.handleSubmit}
             />
             {this.state.movies.length !== 0 ?
+            <View>
+            <Ionicons
+              name='ios-arrow-dropleft'
+              size={32}
+              style={styles.homeIcon}
+              onPress={()=> this.clearMovies()}
+
+            />
             <MovieContainer
                 movies={this.state.movies}
                 clearMovies={this.clearMovies}
                 watchLater={this.watchLater}
             />
+            </View>
                 :
             <WatchLater
                 watchLater={this.state.watchLater}
@@ -135,6 +146,11 @@ export default class HomeScreen extends React.Component {
         margin: 30,
         backgroundColor: '#ff414e',
         borderRadius: 10,
-    }
+    },
+    homeIcon:{
+      zIndex: 9,
+      position: 'absolute',
+      color: '#ff414e',
+  }
 
   })
