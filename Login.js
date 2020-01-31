@@ -4,23 +4,6 @@ import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, Touchable
 
 export default class Login extends React.Component{
 
-    state={
-        username: "",
-        password: ''
-    }
-
-
-    handleUsername= text => {
-        this.setState({
-          username: text
-        })
-    }
-    handlePassword= text => {
-        this.setState({
-          password: text
-        })
-    }
-
 
     render(){
         return(
@@ -29,13 +12,15 @@ export default class Login extends React.Component{
                 <Text style={{fontSize: 25, padding: 60, fontWeight: '600', color: '#fff'}}>Log In</Text>
                 <TextInput
                     style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 12, marginBottom: 25}}
-                    onChangeText={(text)=> this.handleUsername(text)}
+                    onChangeText={(text)=> this.props.handleUsername(text)} placeholder="Username"
                 />
                 <TextInput
                     style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 12, marginBottom: 35}}
-                    onChangeText={(text)=> this.handlePassword(text)}
+                    onChangeText={(text)=> this.props.handlePassword(text)} placeholder="Password" secureTextEntry={true}
                 />
-                
+                <TouchableHighlight style={styles.login} onPress={()=>this.props.handleSubmit()}>
+                    <Text style={{textAlign: "center", fontSize: 19, fontWeight:'600', color: "#fff"}}>Login</Text>
+                </TouchableHighlight>
             </View>
         )
     }
@@ -88,8 +73,8 @@ const styles= StyleSheet.create({
       height: 45,
       backgroundColor: '#ff414e'
     },
-    watchLater:{
-        padding: 15,
+    login:{
+        padding: 13,
         margin: 30,
         backgroundColor: '#ff414e',
         borderRadius: 10,

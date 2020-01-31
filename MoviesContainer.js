@@ -17,7 +17,7 @@ export default class MovieContainer extends React.Component{
         .then(data=> {
           this.setState({
             selectedMovie: data
-          })
+          },()=>console.log(data))
         })
     }
 

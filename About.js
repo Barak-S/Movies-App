@@ -6,6 +6,7 @@ export default class Profile extends React.Component{
 
 
     render(){
+
         return(
             <View style={styles.container}>
                 <Text style={{color: '#fff', fontSize: 20, fontWeight: '300' }}>React Native Movie Project App</Text>

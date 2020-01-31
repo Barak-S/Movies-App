@@ -6,9 +6,11 @@ import HomeStack from './HomeStack'
 import AboutStack from './AboutStack'
 import ProfileStack from './ProfileStack'
 
-import Profile from '../Profile'
 import Header from './shared/Header.js'
 
+import Home from '../HomeScreen'
+import About from '../About'
+import Profile from '../Profile'
 
 
 
@@ -20,19 +22,11 @@ const RootDrawerNavigator = createDrawerNavigator({
         screen: ProfileStack
     },
     About: {
-        screen: AboutStack,
-    },
+        screen: AboutStack
+    }
+    
 })
 
 
 export default createAppContainer(RootDrawerNavigator)
 
-// ,
-//     Profile:{
-//         screen: Profile,
-//         navigationOptions:({ navigation })=>{
-//             return {
-//                 headerTitle: ()=> <Header navigation ={navigation} title= '   Profile   '/>
-//             }
-//         }
-//     }

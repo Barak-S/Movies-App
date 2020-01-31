@@ -25,7 +25,7 @@ export default class MovieCard extends Component {
 const styles = StyleSheet.create({
   result:{
     flex: 1,
-    width: '100%',
+    width: 375,
     marginBottom: 20
   },
   heading: {

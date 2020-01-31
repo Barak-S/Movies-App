@@ -7,6 +7,9 @@ export default class Profile extends React.Component{
 
 
     render(){
+
+        console.log(this.props.userId)
+        
         return(
             <View style={styles.container}>
                 <Text style={{color: '#fff', fontSize: 24, fontWeight: '600' }}>Barak Saidoff</Text>

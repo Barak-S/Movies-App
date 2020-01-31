@@ -5,6 +5,9 @@ import WatchLater from './WatchLater';
 import MovieContainer from './MoviesContainer'
 import { Ionicons } from '@expo/vector-icons'
 
+import Header from './routes/shared/Header'
+
+
 
 
 const apiUrl = "http://www.omdbapi.com/?apikey=a0514b1a"
@@ -56,9 +59,15 @@ export default class HomeScreen extends React.Component {
   }
   
   render() {
+
+    console.log(this.props.userId)
+
     
     return (
+
+      
         <View style={styles.container}>
+
             <TextInput
             style={styles.searchBox}
             placeholder={this.state.searchTerm}
@@ -151,6 +160,6 @@ export default class HomeScreen extends React.Component {
       zIndex: 9,
       position: 'absolute',
       color: '#ff414e',
-  }
+  },
 
   })

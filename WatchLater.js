@@ -25,7 +25,7 @@ export default class WatchLater extends React.Component{
 
         return (
             <View>
-                <Text style={{fontSize: 32, color: '#fff',textAlign: "center", fontWeight: '600'}}>Your Watch Later</Text>
+                <Text style={{fontSize: 32, color: '#fff',textAlign: "center", fontWeight: '600'}}>{this.props.watchLater.length === 0? "Watch Later Empty": "Your Watch Later"}</Text>
                 
                 <View style={styles.container}>
                 <ScrollView style={styles.results}>
