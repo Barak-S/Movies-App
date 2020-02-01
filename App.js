@@ -5,6 +5,9 @@ import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, Touchable
 import Navigator from './routes/Drawer'
 import Login from './Login'
 
+import BottomNav from './routes/TabNav'
+
+
 
 export default class App extends React.Component {
 
@@ -49,7 +52,7 @@ export default class App extends React.Component {
         this.setState({
           loggedIn: true,
           userId: data.id
-        })
+        },async()=> console.log(this.state.userId))
       )
     }
   }
@@ -58,7 +61,7 @@ export default class App extends React.Component {
   
   render() {
     let view;
-    this.state.loggedIn ? view=<Navigator screenProps={this.state.userId}/> : view=<Login handleSubmit={this.handleSubmit} handleUsername={this.handleUsername} handlePassword={this.handlePassword}/>
+    this.state.loggedIn ? view=<BottomNav screenProps={this.state.userId}/> : view=<Login handleSubmit={this.handleSubmit} handleUsername={this.handleUsername} handlePassword={this.handlePassword}/>
 
     return (
 

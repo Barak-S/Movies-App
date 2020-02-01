@@ -16,13 +16,13 @@ import Profile from '../Profile'
 
 const RootDrawerNavigator = createDrawerNavigator({
     Home: {
-        screen: HomeStack,
+        screen: (props) => <Home {...props.navigation.state.params} />,
     },
     Profile:{
-        screen: ProfileStack
+        screen: Profile,
     },
     About: {
-        screen: AboutStack
+        screen: About,
     }
     
 })

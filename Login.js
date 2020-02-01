@@ -9,9 +9,9 @@ export default class Login extends React.Component{
         return(
             
             <View style={styles.container}>
-                <Text style={{fontSize: 25, padding: 60, fontWeight: '600', color: '#fff'}}>Log In</Text>
+                <Text style={{fontSize: 30, paddingTop: 125, marginBottom:40, fontWeight: '600', color: '#fff'}}>Log In</Text>
                 <TextInput
-                    style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 12, marginBottom: 25}}
+                    style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 12, marginBottom: 30}}
                     onChangeText={(text)=> this.props.handleUsername(text)} placeholder="Username"
                 />
                 <TextInput
@@ -19,7 +19,7 @@ export default class Login extends React.Component{
                     onChangeText={(text)=> this.props.handlePassword(text)} placeholder="Password" secureTextEntry={true}
                 />
                 <TouchableHighlight style={styles.login} onPress={()=>this.props.handleSubmit()}>
-                    <Text style={{textAlign: "center", fontSize: 19, fontWeight:'600', color: "#fff"}}>Login</Text>
+                    <Text style={{textAlign: "center", fontSize: 19, fontWeight:'700', color: "#fff"}}>Login</Text>
                 </TouchableHighlight>
             </View>
         )

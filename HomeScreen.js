@@ -57,10 +57,9 @@ export default class HomeScreen extends React.Component {
   clearMovies=()=> {
     this.setState({ movies: [] })
   }
+
   
   render() {
-
-    console.log(this.props.userId)
 
     
     return (
@@ -120,10 +119,11 @@ export default class HomeScreen extends React.Component {
     searchBox:{
       fontSize: 21,
       padding: 20,
+      marginTop: 10,
       width: '92%',
       backgroundColor: '#fff',
       borderRadius: 15,
-      marginBottom: 40
+      marginBottom: 24
     },
     results: {
       flex: 1,

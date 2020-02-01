@@ -50,18 +50,18 @@ export default class MovieContainer extends React.Component{
                     <ScrollView>
                     <View style={styles.popup}>
                         <Text style={styles.popTitle}>{this.state.selectedMovie.Title}</Text>
-                        <Text style={{color: "#fff", fontSize: 20 }}>Rating: {this.state.selectedMovie.imdbRating}</Text>
+                        <Text style={{color: "#fff", fontSize: 20, marginBottom: 9 }}>Rating: {this.state.selectedMovie.imdbRating}</Text>
+                        
+                        <TouchableHighlight onPress={()=>this.props.watchLater(this.state.selectedMovie)} style={{ width: 75, paddingBottom: 5, backgroundColor: '#ff414e', borderRadius: 10, height: 45, marginTop: 10}}>
+                            <Text style={{color: '#fff', fontSize: 20, fontWeight: '600', textAlign: "center", paddingTop: 9, paddingLeft: 5, paddingRight: 5 }}>Add +</Text>
+                        </TouchableHighlight>
 
                         <Image
                             source={{uri: this.state.selectedMovie.Poster}}
-                            style={{width: '100%', height: 465, marginTop: 49}}
+                            style={{width: '100%', height: 465, marginTop: 30}}
                             resizeMode= "cover"
                         />
                         <Text style={{color: "#fff", fontSize: 18, fontWeight: '400', marginTop: 20}}>{this.state.selectedMovie.Plot}</Text>
-        
-                        <TouchableHighlight onPress={()=>this.props.watchLater(this.state.selectedMovie)} style={styles.watchLater}>
-                            <Text style={{textAlign: "center", fontSize: 19, fontWeight:'500', color: "#fff"}}>Watch Later</Text>
-                        </TouchableHighlight>
 
                     </View>
                     </ScrollView>
