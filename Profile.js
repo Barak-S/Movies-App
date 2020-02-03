@@ -3,13 +3,14 @@ import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, Touchable
 import { Ionicons } from '@expo/vector-icons'
 
 
+
 export default class Profile extends React.Component{
 
 
 
     render(){
 
-        console.log(this.props.userId)
+        // console.log(this.props.screenProps.userId)
 
         return(
             <View style={styles.container}>
@@ -19,14 +20,13 @@ export default class Profile extends React.Component{
                 name='ios-person-add'
                 size={32}
                 style={{ marginTop: 10, color: "#fff"}}
-                onPress={()=>{}} // render search bar to search users}
+                onPress={() => this.props.navigation.navigate('AddFriends')}
                 
-                // create component with search bar that fetches to "http://localhost:3000/users"
-                // create a profileCard component that renders each profile to screen.
-                // onclick=> modal with contact
-                // in modal - button to follow - onclick adds to users followers in back end
-
+            
                 />
+                <Text style={{color: '#fff',marginTop:350, fontSize: 21, fontWeight: '600' }} onPress={()=>this.props.screenProps.logOut()}>Log out</Text>
+
+
             </View>
         )
     }

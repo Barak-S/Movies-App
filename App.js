@@ -18,6 +18,10 @@ export default class App extends React.Component {
     userId: {}
   }
 
+  // actual IOS device fetches to https which doesnt work for login
+
+  // passing this.state.userId to BottomNav so that I can pass those props to other rednered components
+
   handleUsername= text => {
     this.setState({
       username: text
@@ -31,12 +35,9 @@ export default class App extends React.Component {
   }
 
   handleSubmit=()=>{
-    if(this.state.username === ""){
-      null
-    } else if(this.state.password ===""){
+    if(this.state.username === "" || this.state.password ===""){
       null
     } else{
-
       fetch("http://localhost:3000/users/",{
         headers: {
           'Accept': 'application/json',
@@ -52,16 +53,25 @@ export default class App extends React.Component {
         this.setState({
           loggedIn: true,
           userId: data.id
-        },async()=> console.log(this.state.userId))
+        })
       )
     }
   }
 
+  logOut=()=>{
+    this.setState({
+      loggedIn: false,
+      userId: {},
+      username: '',
+      password: ''
+    })
+  }
   
   
   render() {
+    
     let view;
-    this.state.loggedIn ? view=<BottomNav screenProps={this.state.userId}/> : view=<Login handleSubmit={this.handleSubmit} handleUsername={this.handleUsername} handlePassword={this.handlePassword}/>
+    this.state.loggedIn ? view=<BottomNav screenProps={{userId: this.state.userId, logOut: this.logOut}}/> : view=<Login handleSubmit={this.handleSubmit} handleUsername={this.handleUsername} handlePassword={this.handlePassword}/>
 
     return (
 

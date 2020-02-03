@@ -23,6 +23,8 @@ export default class MovieContainer extends React.Component{
 
     render(){
 
+      // console.log(this.props.userId)
+
         return (
             <View style={styles.container}>
                 <ScrollView style={styles.results}>

@@ -16,34 +16,23 @@ import { Ionicons } from '@expo/vector-icons'
 import Home from '../HomeScreen'
 import About from '../About'
 import Profile from '../Profile'
+import AddFriends from '../AddFriends'
 
 
 const HomeNav = createStackNavigator({
     Home: { screen: Home }
 })
 const ProfileNav = createStackNavigator({
-    Profile: { screen: Profile }
+    Profile: { screen: Profile },
+    AddFriends:{
+        screen: AddFriends,
+    },
 })
 const AboutNav = createStackNavigator({
     About: { screen: About }
 })
 
 const BottomNav = createBottomTabNavigator({
-    Profile: { 
-        screen: ProfileNav, 
-        navigationOptions: {
-            tabBarLabel:'Profile',
-            tabBarIcon: ({ tintColor }) => (
-                <Ionicons
-              name='ios-person'
-              size={32}
-              
-              
-
-            />
-            )
-        }
-    },
     Home: { 
         screen: HomeNav,
         navigationOptions: {
@@ -52,12 +41,27 @@ const BottomNav = createBottomTabNavigator({
                 <Ionicons
               name='ios-home'
               size={32}
-            
+              style={{color: '#333'}}
               
 
             />
             )
-        } 
+        }
+    },
+    Profile: { 
+        screen: ProfileNav, 
+        navigationOptions: {
+            tabBarLabel:'Profile',
+            tabBarIcon: ({ tintColor }) => (
+                <Ionicons
+              name='ios-person'
+              size={32}
+              style={{color: '#333'}}
+              
+
+            />
+            )
+        }
     },
     About: { 
         screen: AboutNav,
@@ -67,7 +71,7 @@ const BottomNav = createBottomTabNavigator({
                 <Ionicons
               name='ios-menu'
               size={32}
-              
+              style={{color: '#333'}}
               
 
             />

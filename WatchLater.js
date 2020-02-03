@@ -22,7 +22,6 @@ export default class WatchLater extends React.Component{
 
     render(){
 
-
         return (
             <View>
                 

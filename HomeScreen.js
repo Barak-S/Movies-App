@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, TouchableHighlight, Modal, Dimensions } from 'react-native';
-import MovieCard from './MovieCard'
 import WatchLater from './WatchLater';
 import MovieContainer from './MoviesContainer'
 import { Ionicons } from '@expo/vector-icons'
@@ -39,10 +38,31 @@ export default class HomeScreen extends React.Component {
     })
   }
 
+  // post to back end here
   watchLater=(movie)=>{
     this.setState({
         watchLater: [...this.state.watchLater, movie]
-    })
+    },()=>(
+      fetch('http://localhost:3000/movies',{
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ Title: movie.Title, Poster: movie.Poster, imdbRating: movie.imdbRating, Plot: movie.Plot, imdbID: movie.imdbID   })
+      }).then(resp=>resp.json())
+      .then(data=>       
+          fetch("http://localhost:3000/watch_laters",{
+            method:"POST",
+            headers: {
+              'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ user_id: this.props.screenProps.userId, movie_id: data.id})
+          }).then(resp=> resp.json()).then(data=> console.log(data))
+        )
+    ))
+
   }
 
   removeFromWatchLater=(movie)=> {
@@ -61,7 +81,7 @@ export default class HomeScreen extends React.Component {
   
   render() {
 
-    
+    // console.log(this.props.screenProps.userId)
     return (
 
       
@@ -86,6 +106,8 @@ export default class HomeScreen extends React.Component {
                 movies={this.state.movies}
                 clearMovies={this.clearMovies}
                 watchLater={this.watchLater}
+                userId={this.props.screenProps.userId}
+
             />
             </View>
                 :
