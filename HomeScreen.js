@@ -74,8 +74,6 @@ export default class HomeScreen extends React.Component {
   }
 
 
-  //fetch delete from backend and remove from state
-
   removeFromWatchLater=(movie ,id)=> {
     fetch("http://localhost:3000/watch_laters/find_and_delete",{
       method:"POST",
@@ -90,16 +88,6 @@ export default class HomeScreen extends React.Component {
     .then(movies=> this.setState({
       watchLater: movies
     }))
-      // let foundMovie = this.state.watchLater.find(element => element.id === movie.id)
-      // console.log("deleting", foundMovie)
-      // let newArray = this.state.watchLater.filter(element => element.imdbID !== foundMovie.imdbID)
-      
-      // // need to get watch later ID
-      // fetch('http://localhost:3000/watch_laters/',{
-      //   method: "DELETE",
-      //   body: JSON.stringify({ user_id: this.props.screenProps.userId, movie_id: foundMovie.imdbID })
-      // }).then(resp=> resp.json())
-      // .then(data=>console.log(foundMovie))
   
   }
 

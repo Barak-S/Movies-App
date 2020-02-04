@@ -16,6 +16,7 @@ import Home from '../HomeScreen'
 import About from '../About'
 import Profile from '../Profile'
 import AddFriends from '../AddFriends'
+import MyFriends from '../MyFriends'
 
 
 const HomeNav = createStackNavigator({
@@ -23,9 +24,8 @@ const HomeNav = createStackNavigator({
 })
 const ProfileNav = createStackNavigator({
     Profile: { screen: Profile },
-    AddFriends:{
-        screen: AddFriends,
-    },
+    AddFriends:{screen: AddFriends},
+    MyFriends:{screen: MyFriends},
 })
 const AboutNav = createStackNavigator({
     About: { screen: About }
@@ -40,7 +40,7 @@ const BottomNav = createBottomTabNavigator({
                 <Ionicons
               name='ios-home'
               size={32}
-              style={{color: '#333'}}
+              color={tintColor}
               
 
             />
@@ -55,7 +55,7 @@ const BottomNav = createBottomTabNavigator({
                 <Ionicons
               name='ios-person'
               size={32}
-              style={{color: '#333'}}
+              color={tintColor}
               
 
             />
@@ -70,8 +70,7 @@ const BottomNav = createBottomTabNavigator({
                 <Ionicons
               name='ios-menu'
               size={32}
-              style={{color: '#333'}}
-              
+              color={tintColor}
 
             />
             )
@@ -79,10 +78,10 @@ const BottomNav = createBottomTabNavigator({
     }
 }, {
     tabBarOptions: {
-        activeTintColor: '#6558F5',
-        inactiveTintColor: '#788896', 
+        activeTintColor: '#ff414e',
+        inactiveTintColor: '#333', 
         showIcon: true,
-        tabStyle: { margin: 3, top: 9 }
+        tabStyle: { margin: 2, top: 9 }
     }
 })
 

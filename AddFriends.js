@@ -1,11 +1,12 @@
 import React from 'react'
 import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, TouchableHighlight, Modal } from 'react-native';
-
+import ProfileCard from './ProfileCard'
 
 export default class AddFriends extends React.Component{
 
     state={
-        searchFriendTerm: ""
+        searchFriendTerm: "",
+        result: []
     }
 
     handleChange=(text)=> {
@@ -15,16 +16,30 @@ export default class AddFriends extends React.Component{
     }
 
     handleSubmit=()=>{
-        //fetch all users by searchTerm
+        fetch('http://localhost:3000/users/')
+        .then(resp=>resp.json())
+        .then(users => this.setState({
+            result: users.filter(user => user.username.toLowerCase().includes(this.state.searchFriendTerm.toLowerCase()))
+        },()=>console.log(this.state.result)))
+
     }
 
 
     render(){
         return(
             <View style={styles.container}>
-                <Text style={{fontSize: 24, fontWeight: '600', marginTop: 40, color: '#fff', marginBottom: 30}}>Search by Username</Text>
-                <TextInput style={styles.searchBox} onChange={(text)=>this.handleChange(text)}/>
-                
+                <Text style={{fontSize: 24, fontWeight: '600', marginTop: 40, color: '#fff', marginBottom: 17}}>Search by Username</Text>
+                <TextInput style={styles.searchBox} onChangeText={(text)=>this.handleChange(text)} onSubmitEditing={this.handleSubmit} autoCapitalize = 'none'/>
+                <ScrollView>
+                    {this.state.result.map(user=>{
+                        return(
+                            <ProfileCard
+                                key={user.id}
+                                username={user.username}
+                            />
+                        )
+                    })}
+                </ScrollView>
             </View>
         )
     }
@@ -53,40 +68,9 @@ const styles= StyleSheet.create({
     searchBox:{
       fontSize: 21,
       padding: 20,
+      marginBottom: 7,
       width: '92%',
       backgroundColor: '#fff',
       borderRadius: 15,
     },
-    results: {
-      flex: 1,
-    },
-    popup: {
-      padding: 50,
-      backgroundColor: '#333',
-      flex:1,
-    },
-    popTitle:{
-      fontSize: 29,
-      fontWeight: '600',
-      color: '#ff414e',
-    },
-    closeBtn:{
-      padding: 20,
-      fontSize: 24,
-      fontWeight: '600',
-      color: '#fff',
-      backgroundColor: '#ff414e'
-    },
-    backButton:{
-      width: '100%',
-      height: 45,
-      backgroundColor: '#ff414e'
-    },
-    watchLater:{
-        padding: 15,
-        margin: 30,
-        backgroundColor: '#ff414e',
-        borderRadius: 10,
-    }
-
-  })
+})

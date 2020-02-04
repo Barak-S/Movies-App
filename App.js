@@ -15,7 +15,7 @@ export default class App extends React.Component {
     loggedIn: false,
     username: '',
     password: '',
-    userId: {}
+    userId: {},
   }
 
   // actual IOS device fetches to https which doesnt work for login
@@ -71,7 +71,7 @@ export default class App extends React.Component {
   render() {
     
     let view;
-    this.state.loggedIn ? view=<BottomNav screenProps={{userId: this.state.userId, logOut: this.logOut}}/> : view=<Login handleSubmit={this.handleSubmit} handleUsername={this.handleUsername} handlePassword={this.handlePassword}/>
+    this.state.loggedIn ? view=<BottomNav screenProps={{userId: this.state.userId, logOut: this.logOut, username: this.state.username}}/> : view=<Login handleSubmit={this.handleSubmit} handleUsername={this.handleUsername} handlePassword={this.handlePassword}/>
 
     return (
 
