@@ -18,10 +18,6 @@ export default class App extends React.Component {
     userId: {},
   }
 
-  // actual IOS device fetches to https which doesnt work for login
-
-  // passing this.state.userId to BottomNav so that I can pass those props to other rednered components
-
   handleUsername= text => {
     this.setState({
       username: text

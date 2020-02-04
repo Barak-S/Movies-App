@@ -7,12 +7,9 @@ import { Ionicons } from '@expo/vector-icons'
 import Header from './routes/shared/Header'
 
 
-
-
 const apiUrl = "http://www.omdbapi.com/?apikey=a0514b1a"
 
 export default class HomeScreen extends React.Component {
-
 
 
   state={
@@ -104,6 +101,7 @@ export default class HomeScreen extends React.Component {
             <TextInput
             style={styles.searchBox}
             placeholder={this.state.searchTerm}
+            autoCapitalize = 'none'
             onChangeText={(text)=> this.handleChange(text)}
             onSubmitEditing={this.handleSubmit}
             />
@@ -157,11 +155,11 @@ export default class HomeScreen extends React.Component {
     searchBox:{
       fontSize: 21,
       padding: 20,
-      marginTop: 10,
+      marginTop: 5,
       width: '92%',
       backgroundColor: '#fff',
       borderRadius: 15,
-      marginBottom: 24
+      marginBottom: 17
     },
     results: {
       flex: 1,

@@ -42,7 +42,6 @@ const BottomNav = createBottomTabNavigator({
               size={32}
               color={tintColor}
               
-
             />
             )
         }
@@ -57,7 +56,6 @@ const BottomNav = createBottomTabNavigator({
               size={32}
               color={tintColor}
               
-
             />
             )
         }

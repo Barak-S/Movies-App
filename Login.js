@@ -12,7 +12,7 @@ export default class Login extends React.Component{
                 <Text style={{fontSize: 30, paddingTop: 125, marginBottom:40, fontWeight: '600', color: '#fff'}}>Log In</Text>
                 <TextInput
                     style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 12, marginBottom: 30}}
-                    onChangeText={(text)=> this.props.handleUsername(text)} placeholder="Username"
+                    onChangeText={(text)=> this.props.handleUsername(text)} placeholder="Username" autoCapitalize = 'none'
                 />
                 <TextInput
                     style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 12, marginBottom: 35}}

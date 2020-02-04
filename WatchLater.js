@@ -22,15 +22,13 @@ export default class WatchLater extends React.Component{
 
     render(){
 
-      console.log(this.props.userId)
-
         return (
             <View>
                 
                 <View style={styles.container}>
                 <ScrollView style={styles.results}>
                 <Text style={{fontSize: 32, color: '#fff',textAlign: "center", fontWeight: '600', marginBottom: 9}}>{this.props.watchLater.length === 0? "Watch Later Empty": "Your Watch Later"}</Text>
-
+                <View style={{borderBottomWidth: 1.5, borderBottomColor: '#ff414e', width: 400, marginBottom: 10}}></View>
 
                 {this.props.watchLater.map(movie=> (
                     <MovieCard

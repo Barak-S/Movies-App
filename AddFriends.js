@@ -28,7 +28,7 @@ export default class AddFriends extends React.Component{
     render(){
         return(
             <View style={styles.container}>
-                <Text style={{fontSize: 24, fontWeight: '600', marginTop: 40, color: '#fff', marginBottom: 17}}>Search by Username</Text>
+                <Text style={{fontSize: 24, fontWeight: '600', marginTop: 30, color: '#fff', marginBottom: 17}}>Search by Username</Text>
                 <TextInput style={styles.searchBox} onChangeText={(text)=>this.handleChange(text)} onSubmitEditing={this.handleSubmit} autoCapitalize = 'none'/>
                 <ScrollView>
                     {this.state.result.map(user=>{
@@ -45,9 +45,6 @@ export default class AddFriends extends React.Component{
     }
 }
 
-    // below textInput render a friends container that renders Profile cards => onPress = Modal => button to follow
-    //  fetches to "http://localhost:3000/users"
-    // ? how to search all users b yusername - in  backend ??
     
 
 const styles= StyleSheet.create({
