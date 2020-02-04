@@ -38,7 +38,6 @@ export default class HomeScreen extends React.Component {
     })
   }
 
-  // post to back end here
   watchLater=(movie)=>{
     this.setState({
         watchLater: [...this.state.watchLater, movie]
@@ -59,31 +58,58 @@ export default class HomeScreen extends React.Component {
             'Content-Type': 'application/json'
             },
             body: JSON.stringify({ user_id: this.props.screenProps.userId, movie_id: data.id})
-          }).then(resp=> resp.json()).then(data=> console.log(data))
+          }).then(resp=> resp.json())
+          .then(data=>console.log(data))
         )
     ))
 
   }
 
-  removeFromWatchLater=(movie)=> {
-      let foundMovie = this.state.watchLater.find(element => element.imdbID = movie.imdbID)
-    //   console.log("removing",foundMovie)
-      let newArray = this.state.watchLater.filter(element => element.imdbID !== foundMovie.imdbID)
-    this.setState({
-        watchLater: newArray
+  componentDidMount(){
+    fetch(`http://localhost:3000/users/${this.props.screenProps.userId}`)
+    .then(resp=>resp.json())
+    .then(data=> this.setState({
+      watchLater: data.movies
+    }))
+  }
+
+
+  //fetch delete from backend and remove from state
+
+  removeFromWatchLater=(movie ,id)=> {
+    fetch("http://localhost:3000/watch_laters/find_and_delete",{
+      method:"POST",
+            headers: {
+              'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({movie: movie, user_id:id})
+            
     })
+    .then(resp=>resp.json())
+    .then(movies=> this.setState({
+      watchLater: movies
+    }))
+      // let foundMovie = this.state.watchLater.find(element => element.id === movie.id)
+      // console.log("deleting", foundMovie)
+      // let newArray = this.state.watchLater.filter(element => element.imdbID !== foundMovie.imdbID)
+      
+      // // need to get watch later ID
+      // fetch('http://localhost:3000/watch_laters/',{
+      //   method: "DELETE",
+      //   body: JSON.stringify({ user_id: this.props.screenProps.userId, movie_id: foundMovie.imdbID })
+      // }).then(resp=> resp.json())
+      // .then(data=>console.log(foundMovie))
+  
   }
 
   clearMovies=()=> {
     this.setState({ movies: [] })
   }
-
   
   render() {
 
-    // console.log(this.props.screenProps.userId)
     return (
-
       
         <View style={styles.container}>
 
@@ -114,6 +140,8 @@ export default class HomeScreen extends React.Component {
             <WatchLater
                 watchLater={this.state.watchLater}
                 remove={this.removeFromWatchLater}
+                userId={this.props.screenProps.userId}
+                
             />
             }
         </View> 

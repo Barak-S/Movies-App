@@ -14,6 +14,10 @@ export default class AddFriends extends React.Component{
         })
     }
 
+    handleSubmit=()=>{
+        //fetch all users by searchTerm
+    }
+
 
     render(){
         return(
@@ -30,7 +34,7 @@ export default class AddFriends extends React.Component{
     //  fetches to "http://localhost:3000/users"
     // ? how to search all users b yusername - in  backend ??
     
-    
+
 const styles= StyleSheet.create({
     container:{
       flex: 1,

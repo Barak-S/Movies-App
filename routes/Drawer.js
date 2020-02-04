@@ -16,7 +16,7 @@ import Profile from '../Profile'
 
 const RootDrawerNavigator = createDrawerNavigator({
     Home: {
-        screen: (props) => <Home {...props.navigation.state.params} />,
+        screen: Home,
     },
     Profile:{
         screen: Profile,

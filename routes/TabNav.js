@@ -4,7 +4,6 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 
 import React from 'react'
-import Icon from 'react-native-vector-icons/Ionicons'
 
 import HomeStack from './HomeStack'
 import AboutStack from './AboutStack'

@@ -22,6 +22,8 @@ export default class WatchLater extends React.Component{
 
     render(){
 
+      console.log(this.props.userId)
+
         return (
             <View>
                 
@@ -32,7 +34,7 @@ export default class WatchLater extends React.Component{
 
                 {this.props.watchLater.map(movie=> (
                     <MovieCard
-                    key={movie.imdbID}
+                    key={movie.id}
                     movie={movie}
                     onPress={this.openPopup}
                     />)
@@ -52,7 +54,7 @@ export default class WatchLater extends React.Component{
                         <Text style={styles.popTitle}>{this.state.selectedMovie.Title}</Text>
                         <Text style={{color: "#fff", fontSize: 20, marginBottom: 9 }}>Rating: {this.state.selectedMovie.imdbRating}</Text>
 
-                        <TouchableHighlight onPress={()=>{ this.props.remove(this.state.selectedMovie); this.setState({selectedMovie: {}}); }} style={{ width: 99, paddingBottom: 5, backgroundColor: '#ff414e', borderRadius: 10, height: 45, marginTop: 10}}>
+                        <TouchableHighlight onPress={()=>{ this.props.remove(this.state.selectedMovie, this.props.userId); this.setState({selectedMovie: {}}); }} style={{ width: 99, paddingBottom: 5, backgroundColor: '#ff414e', borderRadius: 10, height: 45, marginTop: 10}}>
                             <Text style={{color: '#fff', fontSize: 20, fontWeight: '600', textAlign: "center", paddingTop: 9, paddingLeft: 6, paddingRight: 6, }}>Remove -</Text>
                         </TouchableHighlight>
                       
