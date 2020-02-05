@@ -83,7 +83,7 @@ const BottomNav = createBottomTabNavigator({
     }
 })
 
-const Tab =createAppContainer(BottomNav)
+const Tab = createAppContainer(BottomNav)
 
 
 export default Tab

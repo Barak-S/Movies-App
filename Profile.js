@@ -9,10 +9,6 @@ export default class Profile extends React.Component{
         friends: []
     }
 
-    addFriend=(friend)=>{
-
-    }
-
 
     render(){
 

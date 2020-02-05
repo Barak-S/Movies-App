@@ -6,15 +6,25 @@ import { Ionicons } from '@expo/vector-icons'
 export default class AddFriends extends React.Component{
 
     render(){
+
         return(
             <View style={styles.container}>
                 <Text style={styles.title}>{this.props.username}</Text>
+                    {this.props.addFriend ? 
                     <Ionicons
                     name='ios-person-add'
                     size={32}
                     style={{ marginTop: 10, color: "#ff414e",}}
-                    onPress={() => {}}
+                    onPress={() => this.props.addFriend(this.props.id)}
                     />
+                    :
+                    <Ionicons
+                    name='ios-person'
+                    size={32}
+                    style={{ marginTop: 10, color: "#ff414e",}}
+                    onPress={() => this.props.selectFriend(this.props.friend)}
+                    />
+                    }
             </View>
         )
     }

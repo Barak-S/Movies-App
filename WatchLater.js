@@ -28,11 +28,11 @@ export default class WatchLater extends React.Component{
                 <View style={styles.container}>
                 <ScrollView style={styles.results}>
                 <Text style={{fontSize: 32, color: '#fff',textAlign: "center", fontWeight: '600', marginBottom: 9}}>{this.props.watchLater.length === 0? "Watch Later Empty": "Your Watch Later"}</Text>
-                <View style={{borderBottomWidth: 1.5, borderBottomColor: '#ff414e', width: 400, marginBottom: 10}}></View>
+                <View style={{borderBottomWidth: 1.5, borderBottomColor: '#ff414e', marginBottom: 10}}></View>
 
                 {this.props.watchLater.map(movie=> (
                     <MovieCard
-                    key={movie.id}
+                    key={movie.imdbID}
                     movie={movie}
                     onPress={this.openPopup}
                     />)
@@ -86,8 +86,7 @@ const styles= StyleSheet.create({
       flex: 1,
       backgroundColor: '#333',
       alignItems: "center",
-      justifyContent: 'flex-start',
-      paddingTop: 5
+      paddingTop: 5,
     },
     title: {
       color: '#ff414e',
