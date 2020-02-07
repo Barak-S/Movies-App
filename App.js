@@ -1,13 +1,7 @@
-  
 import React from 'react';
-import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, TouchableHighlight, Modal } from 'react-native';
-
 import Navigator from './routes/Drawer'
-import Login from './Login'
-
 import BottomNav from './routes/TabNav'
-
-
+import Account from './Account';
 
 export default class App extends React.Component {
 
@@ -30,11 +24,35 @@ export default class App extends React.Component {
       })
   }
 
-  handleSubmit=()=>{
+  handleCreateAccountSubmit=()=>{
     if(this.state.username === "" || this.state.password ===""){
       null
     } else{
       fetch("http://localhost:3000/users/",{
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({
+          username: this.state.username,
+          password: this.state.password
+        })
+      }).then(resp=>resp.json())
+      .then(data=> 
+        this.setState({
+          loggedIn: true,
+          userId: data.id
+        })
+      )
+    }
+  }
+
+  handleLoginSubmit=()=>{
+    if(this.state.username === "" || this.state.password ===""){
+      null
+    } else{
+      fetch("http://localhost:3000/users/find_my_account",{
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -67,7 +85,17 @@ export default class App extends React.Component {
   render() {
     
     let view;
-    this.state.loggedIn ? view=<BottomNav screenProps={{userId: this.state.userId, logOut: this.logOut, username: this.state.username}}/> : view=<Login handleSubmit={this.handleSubmit} handleUsername={this.handleUsername} handlePassword={this.handlePassword}/>
+    this.state.loggedIn ? view=<BottomNav screenProps={{userId: this.state.userId, 
+                                                        logOut: this.logOut, 
+                                                        username: this.state.username}}/> 
+                                                        : 
+                                                        view=<Account 
+                                                        screenProps={{
+                                                          handleLoginSubmit: this.handleLoginSubmit,
+                                                          handleCreateAccountSubmit: this.handleCreateAccountSubmit,
+                                                          handleUsername: this.handleUsername,
+                                                          handlePassword: this.handlePassword}}
+                                                        />
 
     return (
 

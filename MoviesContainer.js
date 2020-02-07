@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, TouchableHighlight, Modal, Dimensions } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, Image, TouchableHighlight, Modal } from 'react-native';
 
 import MovieCard from './MovieCard'
 
@@ -43,8 +43,7 @@ export default class MovieContainer extends React.Component{
                 <View style={{height: 110}}></View>
 
                 </ScrollView>
-                <Modal 
-                    style={styles.modal}
+                <Modal   
                     animationType= "slide"
                     transparent={false}
                     visible={(typeof this.state.selectedMovie.Title != "undefined") ? true : false}

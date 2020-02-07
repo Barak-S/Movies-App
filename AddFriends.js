@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, TouchableHighlight, Modal } from 'react-native';
+import { StyleSheet, View, Text, TextInput, ScrollView } from 'react-native';
 import ProfileCard from './ProfileCard'
 
 export default class AddFriends extends React.Component{
@@ -33,7 +33,7 @@ export default class AddFriends extends React.Component{
             },
             body: JSON.stringify({ follower_id: this.props.screenProps.userId,  followee_id: friendID})
         }).then(resp=> resp.json())
-        alert("added")
+        .then(data=>alert(`Added ${data.followee.username}!`))
     }
 
 

@@ -9,20 +9,20 @@ export default class Login extends React.Component{
         return(
             
             <View style={styles.container}>
-                <Text style={{fontSize: 30, paddingTop: 85, marginBottom:40, fontWeight: '600', color: '#fff'}}>Log In</Text>
+                <Text style={{fontSize: 30, paddingTop: 85, marginBottom:40, fontWeight: '600', color: '#fff'}}>Create Account</Text>
                 <TextInput
-                    style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 12, marginBottom: 30}}
+                    style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 12, marginBottom: 35}}
                     onChangeText={(text)=> this.props.screenProps.handleUsername(text)} placeholder="Username" autoCapitalize = 'none'
                 />
                 <TextInput
-                    style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 12, marginBottom: 7}}
+                    style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 12, marginBottom: 20}}
                     onChangeText={(text)=> this.props.screenProps.handlePassword(text)} placeholder="Password" secureTextEntry={true}
                 />
-                <TouchableHighlight style={styles.login} onPress={()=>this.props.screenProps.handleLoginSubmit()}>
-                    <Text style={{textAlign: "center", fontSize: 19, fontWeight:'700', color: "#fff"}}>Login</Text>
-                </TouchableHighlight>
-
-                <TouchableHighlight onPress={()=>this.props.navigation.navigate('CreateAccount')}>
+                <TextInput
+                    style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 12, marginBottom: 12}}
+                    onChangeText={(text)=> this.props.screenProps.handlePassword(text)} placeholder="Confirm Password" secureTextEntry={true}
+                />
+                <TouchableHighlight style={styles.login} onPress={()=>this.props.screenProps.handleCreateAccountSubmit()}>
                     <Text style={{textAlign: "center", fontSize: 19, fontWeight:'700', color: "#fff"}}>Create Account</Text>
                 </TouchableHighlight>
             </View>

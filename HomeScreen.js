@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, TouchableHighlight, Modal, Dimensions } from 'react-native';
+import { StyleSheet, View, TextInput } from 'react-native';
 import WatchLater from './WatchLater';
 import MovieContainer from './MoviesContainer'
 import { Ionicons } from '@expo/vector-icons'

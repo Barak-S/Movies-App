@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, TouchableHighlight, Modal, Dimensions } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, Modal, } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'
 import ProfileCard from './ProfileCard'
+import MovieCard from './MovieCard'
 
 
 
@@ -25,18 +26,22 @@ export default class Profile extends React.Component{
         .then(resp=> resp.json())
         .then(friends => this.setState({
             friends: friends
-        },()=>console.log(friends)))
+        }))
     }
 
     componentDidMount(){
         this.getFreindsMovies()
-
     }
 
     selectFriend=(friend)=>{
-        console.log(friend)
         this.setState({
-            selectFriend: friend
+            selectedFriend: friend
+        },()=> console.log(this.state.selectedFriend.movies))
+    }
+
+    clearFriend=()=>{
+        this.setState({
+            selectedFriend: {}
         })
     }
 
@@ -57,6 +62,39 @@ export default class Profile extends React.Component{
                             />
                         )
                     })}
+                    <Modal 
+                    style={{backgroundColor: '#333'}}
+                    animationType= "slide"
+                    transparent={false}
+                    visible={this.state.selectedFriend.username !== undefined ? true : false}
+                    >
+                    <View style={styles.popup}>
+                        <Ionicons
+                        name='ios-arrow-dropleft'
+                        size={32}
+                        style={styles.homeIcon}
+                        onPress={()=> this.clearFriend()}
+
+                        />
+                        <Text style={{marginTop: 50, fontSize: 30, textAlign: 'center', fontWeight: '600', color: '#fff'}}>{this.state.selectedFriend.username}'s Watch Later</Text>
+                        <View style={{borderBottomWidth: 1.5, borderBottomColor: '#ff414e', marginBottom: 10, marginTop: 10, }}></View>
+                        <ScrollView style={styles.results}>
+                        {this.state.selectedFriend.movies ? 
+                            this.state.selectedFriend.movies.map(movie=> {
+                                return(
+                                    <MovieCard
+                                        key={movie.imdbID}
+                                        movie={movie}
+                                    />
+                                )
+                            })
+
+                            : 
+                            
+                            null}
+                        </ScrollView>
+                    </View>
+                    </Modal>
                 </ScrollView>
                 
             </View>
@@ -73,6 +111,36 @@ const styles= StyleSheet.create({
       alignItems: "center",
       justifyContent: 'flex-start',
       paddingTop: 35,
-
-    }
+    },
+    results:{
+        flex: 1,
+    },
+    popup: {
+        backgroundColor: '#333',
+        flex:1,
+    },
+    popTitle:{
+        fontSize: 29,
+        fontWeight: '600',
+        color: '#ff414e',
+    },
+    closeBtn:{
+        padding: 20,
+        fontSize: 24,
+        fontWeight: '600',
+        color: '#fff',
+        backgroundColor: '#ff414e'
+    },
+    backButton:{
+        width: '100%',
+        height: 45,
+        backgroundColor: '#ff414e'
+    },
+    homeIcon:{
+        zIndex: 9,
+        position: 'absolute',
+        color: '#ff414e',
+        marginTop: 55,
+        marginLeft: 11
+    },
 })

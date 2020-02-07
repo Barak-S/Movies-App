@@ -1,9 +1,13 @@
 import React from 'react'
-import { StyleSheet, Button, View, Text, TextInput, ScrollView, Image, TouchableHighlight, Modal } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'
 
 
 export default class AddFriends extends React.Component{
+
+    state={
+        selected: false
+    }
 
     render(){
 
@@ -13,14 +17,14 @@ export default class AddFriends extends React.Component{
                     {this.props.addFriend ? 
                     <Ionicons
                     name='ios-person-add'
-                    size={32}
+                    size={35}
                     style={{ marginTop: 10, color: "#ff414e",}}
                     onPress={() => this.props.addFriend(this.props.id)}
                     />
                     :
                     <Ionicons
                     name='ios-person'
-                    size={32}
+                    size={35}
                     style={{ marginTop: 10, color: "#ff414e",}}
                     onPress={() => this.props.selectFriend(this.props.friend)}
                     />
