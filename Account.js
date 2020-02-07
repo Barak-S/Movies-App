@@ -5,8 +5,15 @@ import CreateAccount from './CreateAccount'
 
 
 const Account = createStackNavigator({
-    Login: { screen: Login },
-    CreateAccount:{screen: CreateAccount}
+    Login: { screen: Login, navigationOptions: () => ({
+        title: `Log In`,
+        headerTitleStyle: { color: '#ff414e', fontSize: 19 },
+    }), },
+    CreateAccount:{screen: CreateAccount, navigationOptions: () => ({
+        title: `Create Account`,
+        headerTitleStyle: { color: '#ff414e', fontSize: 19 },
+        headerBackTitleStyle: { color: '#ff414e', fontSize: 17 }
+    }),}
 })
 
 

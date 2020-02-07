@@ -47,7 +47,7 @@ const styles= StyleSheet.create({
       backgroundColor: '#333',
       alignItems: "center",
       justifyContent: 'flex-start',
-      paddingTop: 33,
+      paddingTop: 28,
 
     },
     logOut:{

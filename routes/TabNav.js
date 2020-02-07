@@ -1,7 +1,7 @@
 import { createBottomTabNavigator, BottomTabBar } from 'react-navigation-tabs';
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack';
-
+import Drawer from './Drawer'
 
 import React from 'react'
 
@@ -20,15 +20,35 @@ import MyFriends from '../MyFriends'
 
 
 const HomeNav = createStackNavigator({
-    Home: { screen: Home }
+    Home: { screen: Home, navigationOptions: () => ({
+        title: `Home`,
+        headerTitleStyle: { color: '#ff414e', fontSize: 19 },
+        headerBackTitle: null
+      }), }
 })
+
 const ProfileNav = createStackNavigator({
-    Profile: { screen: Profile },
-    AddFriends:{screen: AddFriends},
-    MyFriends:{screen: MyFriends},
+    Profile: { screen: Profile, navigationOptions: () => ({
+        title: `Profile`,
+        headerTitleStyle: { color: '#ff414e', fontSize: 19 },
+      }), },
+    AddFriends:{screen: AddFriends, navigationOptions: () => ({
+        title: `Add Friends`,
+        headerTitleStyle: { color: '#ff414e', fontSize: 19 },
+        headerBackTitleStyle: { color: '#ff414e', fontSize: 17 }
+      }),},
+    MyFriends:{screen: MyFriends, navigationOptions: () => ({
+        title: `My Friends`,
+        headerTitleStyle: { color: '#ff414e', fontSize: 19 },
+        headerBackTitleStyle: { color: '#ff414e', fontSize: 17 }
+      }),},
 })
+
 const AboutNav = createStackNavigator({
-    About: { screen: About }
+    About: { screen: About, navigationOptions: () => ({
+        title: `About`,
+        headerTitleStyle: { color: '#ff414e', fontSize: 19 },
+      }), }
 })
 
 const BottomNav = createBottomTabNavigator({

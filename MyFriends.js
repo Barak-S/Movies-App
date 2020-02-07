@@ -49,8 +49,6 @@ export default class Profile extends React.Component{
 
         return(
             <View style={styles.container}>
-                <Text style={{fontSize: 28, fontWeight: '600', color: '#ff414e', marginBottom: 9}}>Friends</Text>
-                <View style={{borderBottomWidth: 1.5, borderBottomColor: '#ff414e', width: 400, }}></View>
                 <ScrollView>
                     {this.state.friends.map(friend=> {
                         return(
@@ -78,7 +76,7 @@ export default class Profile extends React.Component{
                         />
                         <Text style={{marginTop: 50, fontSize: 30, textAlign: 'center', fontWeight: '600', color: '#fff'}}>{this.state.selectedFriend.username}'s Watch Later</Text>
                         <View style={{borderBottomWidth: 1.5, borderBottomColor: '#ff414e', marginBottom: 10, marginTop: 10, }}></View>
-                        <ScrollView style={styles.results}>
+                        <ScrollView style={{marginLeft: 19}}>
                         {this.state.selectedFriend.movies ? 
                             this.state.selectedFriend.movies.map(movie=> {
                                 return(
@@ -110,7 +108,7 @@ const styles= StyleSheet.create({
       backgroundColor: '#333',
       alignItems: "center",
       justifyContent: 'flex-start',
-      paddingTop: 35,
+      paddingTop: 7,
     },
     results:{
         flex: 1,
