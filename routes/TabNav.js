@@ -97,7 +97,7 @@ const BottomNav = createBottomTabNavigator({
             tabBarIcon: ({ tintColor }) => (
                 <Ionicons
               name='ios-menu'
-              size={34}
+              size={35}
               color={tintColor}
               style={{marginBottom: 10}}
             />

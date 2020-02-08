@@ -11,11 +11,11 @@ export default class Login extends React.Component{
             <View style={styles.container}>
                 <Text style={{fontSize: 30, paddingTop: 85, marginBottom:40, fontWeight: '600', color: '#fff'}}>Log In</Text>
                 <TextInput
-                    style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 12, marginBottom: 30}}
+                    style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 10, marginBottom: 30}}
                     onChangeText={(text)=> this.props.screenProps.handleUsername(text)} placeholder="Username" autoCapitalize = 'none'
                 />
                 <TextInput
-                    style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 12, marginBottom: 7}}
+                    style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 10, marginBottom: 7}}
                     onChangeText={(text)=> this.props.screenProps.handlePassword(text)} placeholder="Password" secureTextEntry={true}
                 />
                 <TouchableHighlight style={styles.login} onPress={()=>this.props.screenProps.handleLoginSubmit()}>
@@ -44,13 +44,6 @@ const styles= StyleSheet.create({
       fontSize: 32,
       textAlign: "center",
       marginBottom: 20
-    },
-    searchBox:{
-      fontSize: 21,
-      padding: 20,
-      width: '92%',
-      backgroundColor: '#fff',
-      borderRadius: 15,
     },
     results: {
       flex: 1,

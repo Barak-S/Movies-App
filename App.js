@@ -80,6 +80,19 @@ export default class App extends React.Component {
       password: ''
     })
   }
+
+
+  deleteAcc=()=>{
+    fetch(`http://localhost:3000/users/${this.state.userId}`,{
+      method: 'DELETE'
+    })
+    this.setState({
+      loggedIn: false,
+      userId: {},
+      username: '',
+      password: ''
+    })
+  }
   
   
   render() {
@@ -87,7 +100,8 @@ export default class App extends React.Component {
     let view;
     this.state.loggedIn ? view=<BottomNav screenProps={{userId: this.state.userId, 
                                                         logOut: this.logOut, 
-                                                        username: this.state.username}}/> 
+                                                        username: this.state.username,
+                                                        deleteAcc: this.deleteAcc}}/> 
                                                         : 
                                                         view=<Account 
                                                         screenProps={{
