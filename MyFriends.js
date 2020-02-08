@@ -75,7 +75,7 @@ export default class Profile extends React.Component{
 
                         />
                         <Text style={{marginTop: 50, fontSize: 30, textAlign: 'center', fontWeight: '600', color: '#fff'}}>{this.state.selectedFriend.username}'s Watch Later</Text>
-                        <View style={{borderBottomWidth: 1.5, borderBottomColor: '#ff414e', marginBottom: 10, marginTop: 10, }}></View>
+                        <View style={{borderBottomWidth: 1.5, borderBottomColor: '#ffd700', marginBottom: 10, marginTop: 10, }}></View>
                         <ScrollView style={{marginLeft: 19}}>
                         {this.state.selectedFriend.movies ? 
                             this.state.selectedFriend.movies.map(movie=> {
@@ -137,7 +137,7 @@ const styles= StyleSheet.create({
     homeIcon:{
         zIndex: 9,
         position: 'absolute',
-        color: '#ff414e',
+        color: '#ffd700',
         marginTop: 55,
         marginLeft: 11
     },

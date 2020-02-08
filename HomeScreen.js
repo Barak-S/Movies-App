@@ -146,7 +146,7 @@ export default class HomeScreen extends React.Component {
       paddingTop: 24
     },
     title: {
-      color: '#ff414e',
+      color: '#ffd700',
       fontWeight: '700',
       fontSize: 32,
       textAlign: "center",
@@ -195,7 +195,7 @@ export default class HomeScreen extends React.Component {
     homeIcon:{
       zIndex: 9,
       position: 'absolute',
-      color: '#ff414e',
+      color: '#ffd700',
   },
 
   })

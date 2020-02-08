@@ -5,11 +5,6 @@ import Drawer from './Drawer'
 
 import React from 'react'
 
-import HomeStack from './HomeStack'
-import AboutStack from './AboutStack'
-import ProfileStack from './ProfileStack'
-
-import Header from './shared/Header.js'
 import { Ionicons } from '@expo/vector-icons'
 
 import Home from '../HomeScreen'
@@ -22,7 +17,10 @@ import MyFriends from '../MyFriends'
 const HomeNav = createStackNavigator({
     Home: { screen: Home, navigationOptions: () => ({
         title: `Home`,
-        headerTitleStyle: { color: '#ff414e', fontSize: 19 },
+        headerStyle: {
+            backgroundColor: '#333',
+          },
+        headerTitleStyle: { color: '#ffd700', fontSize: 19 },
         headerBackTitle: null
       }), }
 })
@@ -30,24 +28,36 @@ const HomeNav = createStackNavigator({
 const ProfileNav = createStackNavigator({
     Profile: { screen: Profile, navigationOptions: () => ({
         title: `Profile`,
-        headerTitleStyle: { color: '#ff414e', fontSize: 19 },
+        headerStyle: {
+            backgroundColor: '#333',
+          },
+        headerTitleStyle: { color: '#ffd700', fontSize: 19 },
       }), },
     AddFriends:{screen: AddFriends, navigationOptions: () => ({
         title: `Add Friends`,
-        headerTitleStyle: { color: '#ff414e', fontSize: 19 },
-        headerBackTitleStyle: { color: '#ff414e', fontSize: 17 }
+        headerStyle: {
+            backgroundColor: '#333',
+          },
+        headerTitleStyle: { color: '#ffd700', fontSize: 19 },
+        headerBackTitleStyle: { color: '#ffd700', fontSize: 17 }
       }),},
     MyFriends:{screen: MyFriends, navigationOptions: () => ({
         title: `My Friends`,
-        headerTitleStyle: { color: '#ff414e', fontSize: 19 },
-        headerBackTitleStyle: { color: '#ff414e', fontSize: 17 }
+        headerStyle: {
+            backgroundColor: '#333',
+          },
+        headerTitleStyle: { color: '#ffd700', fontSize: 19 },
+        headerBackTitleStyle: { color: '#ffd700', fontSize: 17 }
       }),},
 })
 
 const AboutNav = createStackNavigator({
     About: { screen: About, navigationOptions: () => ({
         title: `About`,
-        headerTitleStyle: { color: '#ff414e', fontSize: 19 },
+        headerStyle: {
+            backgroundColor: '#333',
+          },
+        headerTitleStyle: { color: '#ffd700', fontSize: 19 },
       }), }
 })
 
@@ -59,9 +69,9 @@ const BottomNav = createBottomTabNavigator({
             tabBarIcon: ({ tintColor }) => (
                 <Ionicons
               name='ios-home'
-              size={32}
+              size={34}
               color={tintColor}
-              
+              style={{marginBottom: 10}}
             />
             )
         }
@@ -73,9 +83,9 @@ const BottomNav = createBottomTabNavigator({
             tabBarIcon: ({ tintColor }) => (
                 <Ionicons
               name='ios-person'
-              size={32}
+              size={34}
               color={tintColor}
-              
+              style={{marginBottom: 10}}
             />
             )
         }
@@ -87,19 +97,20 @@ const BottomNav = createBottomTabNavigator({
             tabBarIcon: ({ tintColor }) => (
                 <Ionicons
               name='ios-menu'
-              size={32}
+              size={34}
               color={tintColor}
-
+              style={{marginBottom: 10}}
             />
             )
         }    
     }
 }, {
     tabBarOptions: {
-        activeTintColor: '#ff414e',
-        inactiveTintColor: '#333', 
+        activeTintColor: '#ffd700',
+        inactiveTintColor: '#fff', 
         showIcon: true,
-        tabStyle: { margin: 2, top: 9 }
+        tabStyle: {backgroundColor: "#333", height: 100, borderTopWidth: 0.125, borderTopColor: "#fff"},
+
     }
 })
 

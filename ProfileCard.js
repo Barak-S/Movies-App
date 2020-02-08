@@ -18,14 +18,14 @@ export default class AddFriends extends React.Component{
                     <Ionicons
                     name='ios-person-add'
                     size={35}
-                    style={{ marginTop: 10, color: "#ff414e",}}
+                    style={{ marginTop: 10, color: "#ffd700",}}
                     onPress={() => this.props.addFriend(this.props.id)}
                     />
                     :
                     <Ionicons
                     name='ios-person'
                     size={35}
-                    style={{ marginTop: 10, color: "#ff414e",}}
+                    style={{ marginTop: 10, color: "#ffd700",}}
                     onPress={() => this.props.selectFriend(this.props.friend)}
                     />
                     }
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     container: {
       borderRadius: 10,
       borderWidth: 1.79,
-      borderColor: '#ff414e',
+      borderColor: '#ffd700',
       width: 385,
       height: 100,
       marginTop: 12.5,

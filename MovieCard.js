@@ -8,7 +8,7 @@ export default class MovieCard extends Component {
   render() {
     return (
 
-      <TouchableHighlight onPress={()=> this.props.onPress(this.props.movie.imdbID)}>
+      <TouchableHighlight onPress={()=> this.props.onPress? this.props.onPress(this.props.movie.imdbID): null}>
         <View style={styles.result}>
           <Image
             source={{uri: this.props.movie.Poster}}
@@ -29,10 +29,10 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   heading: {
-    color: '#fff',
+    color: '#333',
     fontSize: 18,
     fontWeight: '600',
     padding: 20,
-    backgroundColor: '#ff414e'
+    backgroundColor: '#ffd700'
   }
 })

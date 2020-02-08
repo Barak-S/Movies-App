@@ -53,8 +53,8 @@ export default class MovieContainer extends React.Component{
                         <Text style={styles.popTitle}>{this.state.selectedMovie.Title}</Text>
                         <Text style={{color: "#fff", fontSize: 20, marginBottom: 9 }}>Rating: {this.state.selectedMovie.imdbRating}</Text>
                         
-                        <TouchableHighlight onPress={()=>this.props.watchLater(this.state.selectedMovie)} style={{ width: 75, paddingBottom: 5, backgroundColor: '#ff414e', borderRadius: 10, height: 45, marginTop: 10}}>
-                            <Text style={{color: '#fff', fontSize: 20, fontWeight: '600', textAlign: "center", paddingTop: 9, paddingLeft: 5, paddingRight: 5 }}>Add +</Text>
+                        <TouchableHighlight onPress={()=>this.props.watchLater(this.state.selectedMovie)} style={{ width: 75, paddingBottom: 5, backgroundColor: '#ffd700', borderRadius: 10, height: 45, marginTop: 10}}>
+                            <Text style={{color: '#333', fontSize: 20, fontWeight: '600', textAlign: "center", paddingTop: 9, paddingLeft: 5, paddingRight: 5 }}>Add +</Text>
                         </TouchableHighlight>
 
                         <Image
@@ -88,7 +88,7 @@ const styles= StyleSheet.create({
 
     },
     title: {
-      color: '#ff414e',
+      color: '#ffd700',
       fontWeight: '700',
       fontSize: 32,
       textAlign: "center",
@@ -112,25 +112,19 @@ const styles= StyleSheet.create({
     popTitle:{
       fontSize: 29,
       fontWeight: '600',
-      color: '#ff414e',
+      color: '#ffd700',
     },
     closeBtn:{
       padding: 20,
       fontSize: 24,
       fontWeight: '600',
-      color: '#fff',
-      backgroundColor: '#ff414e'
+      color: '#333',
+      backgroundColor: '#ffd700'
     },
     backButton:{
       width: '100%',
       height: 45,
-      backgroundColor: '#ff414e'
-    },
-    watchLater:{
-        padding: 15,
-        margin: 30,
-        backgroundColor: '#ff414e',
-        borderRadius: 10,
+      backgroundColor: '#ffd700'
     }
 
   })
