@@ -3,6 +3,10 @@ import Navigator from './routes/Drawer'
 import BottomNav from './routes/TabNav'
 import Account from './Account';
 
+const serverURL = 'http://2ed56f56.ngrok.io'
+// in APP, HOMESCREEN, MYFRIENDS, ADDFRIENDS
+// ./ngrok http 3000 -host-header="localhost:3000" command to run in terminal to load up ngrok
+
 export default class App extends React.Component {
 
   state={
@@ -28,7 +32,7 @@ export default class App extends React.Component {
     if(this.state.username === "" || this.state.password ===""){
       null
     } else{
-      fetch("http://localhost:3000/users/",{
+      fetch(`${serverURL}/users/`,{
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -52,7 +56,7 @@ export default class App extends React.Component {
     if(this.state.username === "" || this.state.password ===""){
       null
     } else{
-      fetch("http://localhost:3000/users/find_my_account",{
+      fetch(`${serverURL}/users/find_my_account`,{
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -83,7 +87,7 @@ export default class App extends React.Component {
 
 
   deleteAcc=()=>{
-    fetch(`http://localhost:3000/users/${this.state.userId}`,{
+    fetch(`${serverURL}/users/${this.state.userId}`,{
       method: 'DELETE'
     })
     this.setState({

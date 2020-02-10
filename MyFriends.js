@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons'
 import ProfileCard from './ProfileCard'
 import MovieCard from './MovieCard'
 
+const serverURL = 'http://2ed56f56.ngrok.io'
 
 
 export default class Profile extends React.Component{
@@ -15,7 +16,7 @@ export default class Profile extends React.Component{
 
     //fetch to get all follows where follower_id is this.props.screenProps.userId 
     getFreindsMovies=()=>{
-        fetch("http://localhost:3000/follows/find_my_followees",{
+        fetch(`${serverURL}/follows/find_my_followees`,{
             method:"POST",
             headers: {
                 'Accept': 'application/json',

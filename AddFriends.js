@@ -2,6 +2,8 @@ import React from 'react'
 import { StyleSheet, View, Text, TextInput, ScrollView } from 'react-native';
 import ProfileCard from './ProfileCard'
 
+const serverURL = 'http://2ed56f56.ngrok.io'
+
 export default class AddFriends extends React.Component{
 
     state={
@@ -16,7 +18,7 @@ export default class AddFriends extends React.Component{
     }
 
     handleSubmit=()=>{
-        fetch('http://localhost:3000/users/')
+        fetch(`${serverURL}/users/`)
         .then(resp=>resp.json())
         .then(users => this.setState({
             result: users.filter(user => user.username.toLowerCase().includes(this.state.searchFriendTerm.toLowerCase()) && user.id !== this.props.screenProps.userId )
@@ -25,7 +27,7 @@ export default class AddFriends extends React.Component{
     }
 
     addFriend=(friendID)=>{
-        fetch("http://localhost:3000/follows",{
+        fetch(`${serverURL}/follows`,{
             method:"POST",
             headers: {
                 'Accept': 'application/json',

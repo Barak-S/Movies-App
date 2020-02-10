@@ -17,7 +17,7 @@ export default class MovieContainer extends React.Component{
         .then(data=> {
           this.setState({
             selectedMovie: data
-          })
+          },()=>console.log(this.state.selectedMovie))
         })
     }
 
@@ -62,7 +62,12 @@ export default class MovieContainer extends React.Component{
                             style={{width: '100%', height: 465, marginTop: 30}}
                             resizeMode= "cover"
                         />
-                        <Text style={{color: "#fff", fontSize: 18, fontWeight: '400', marginTop: 20}}>{this.state.selectedMovie.Plot}</Text>
+                        <Text style={{color: "#fff", fontSize: 22, fontWeight: '600', marginTop: 20}}>Rated: {this.state.selectedMovie.Rated}</Text>
+                        <Text style={{color: "#fff", fontSize: 18, fontWeight: '400', marginTop: 15}}>{this.state.selectedMovie.Plot}</Text>
+                        <Text style={{color: "#fff", fontSize: 20, fontWeight: '500', marginTop: 20}}>Actors: </Text>
+                        <Text style={{color: "#fff", fontSize: 18, fontWeight: '400',}}>{this.state.selectedMovie.Actors}</Text>
+                        <Text style={{color: "#fff", fontSize: 20, fontWeight: '400', marginTop: 20}}>Runtime: {this.state.selectedMovie.Runtime}</Text>
+                        <Text style={{color: "#fff", fontSize: 20, fontWeight: '400', marginTop: 2}}>Year: {this.state.selectedMovie.Year}</Text>
 
                     </View>
                     </ScrollView>

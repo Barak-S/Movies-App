@@ -6,6 +6,8 @@ import { Ionicons } from '@expo/vector-icons'
 
 const apiUrl = "http://www.omdbapi.com/?apikey=a0514b1a"
 
+const serverURL = 'http://2ed56f56.ngrok.io'
+
 export default class HomeScreen extends React.Component {
 
 
@@ -36,7 +38,7 @@ export default class HomeScreen extends React.Component {
     this.setState({
         watchLater: [...this.state.watchLater, movie]
     },()=>(
-      fetch('http://localhost:3000/movies',{
+      fetch(`${serverURL}/movies`,{
       method: "POST",
       headers: {
         'Accept': 'application/json',
@@ -45,7 +47,7 @@ export default class HomeScreen extends React.Component {
       body: JSON.stringify({ Title: movie.Title, Poster: movie.Poster, imdbRating: movie.imdbRating, Plot: movie.Plot, imdbID: movie.imdbID   })
       }).then(resp=>resp.json())
       .then(data=>       
-          fetch("http://localhost:3000/watch_laters",{
+          fetch(`${serverURL}/watch_laters`,{
             method:"POST",
             headers: {
               'Accept': 'application/json',
@@ -60,7 +62,7 @@ export default class HomeScreen extends React.Component {
   }
 
   componentDidMount(){
-    fetch(`http://localhost:3000/users/${this.props.screenProps.userId}`)
+    fetch(`${serverURL}/users/${this.props.screenProps.userId}`)
     .then(resp=>resp.json())
     .then(data=> this.setState({
       watchLater: data.movies
@@ -69,7 +71,7 @@ export default class HomeScreen extends React.Component {
 
 
   removeFromWatchLater=(movie ,id)=> {
-    fetch("http://localhost:3000/watch_laters/find_and_delete",{
+    fetch(`${serverURL}/watch_laters/find_and_delete`,{
       method:"POST",
             headers: {
               'Accept': 'application/json',
