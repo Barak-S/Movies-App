@@ -18,9 +18,9 @@ const HomeNav = createStackNavigator({
     Home: { screen: Home, navigationOptions: () => ({
         title: `Home`,
         headerStyle: {
-            backgroundColor: '#333',
+            backgroundColor: '#7EB09B',
           },
-        headerTitleStyle: { color: '#A5DB55', fontSize: 19 },
+        headerTitleStyle: { color: '#fff', fontSize: 21 },
         headerBackTitle: null
       }), }
 })
@@ -29,25 +29,25 @@ const ProfileNav = createStackNavigator({
     Profile: { screen: Profile, navigationOptions: () => ({
         title: `Profile`,
         headerStyle: {
-            backgroundColor: '#333',
+            backgroundColor: '#7EB09B',
           },
-        headerTitleStyle: { color: '#A5DB55', fontSize: 19 },
+        headerTitleStyle: { color: '#fff', fontSize: 21 },
       }), },
     AddFriends:{screen: AddFriends, navigationOptions: () => ({
         title: `Add Friends`,
         headerStyle: {
-            backgroundColor: '#333',
+            backgroundColor: '#7EB09B',
           },
-        headerTitleStyle: { color: '#A5DB55', fontSize: 19 },
-        headerBackTitleStyle: { color: '#A5DB55', fontSize: 17 }
+        headerTitleStyle: { color: '#fff', fontSize: 21 },
+        headerBackTitleStyle: { color: '#ff414e', fontSize: 19 }
       }),},
     MyFriends:{screen: MyFriends, navigationOptions: () => ({
         title: `My Friends`,
         headerStyle: {
-            backgroundColor: '#333',
+            backgroundColor: '#7EB09B',
           },
-        headerTitleStyle: { color: '#A5DB55', fontSize: 19 },
-        headerBackTitleStyle: { color: '#A5DB55', fontSize: 17 }
+        headerTitleStyle: { color: '#fff', fontSize: 21 },
+        headerBackTitleStyle: { color: '#ff414e', fontSize: 19 }
       }),},
 })
 
@@ -55,9 +55,9 @@ const AboutNav = createStackNavigator({
     About: { screen: About, navigationOptions: () => ({
         title: `About`,
         headerStyle: {
-            backgroundColor: '#333',
+            backgroundColor: '#7EB09B',
           },
-        headerTitleStyle: { color: '#A5DB55', fontSize: 19 },
+        headerTitleStyle: { color: '#fff', fontSize: 21 },
       }), }
 })
 
@@ -106,10 +106,10 @@ const BottomNav = createBottomTabNavigator({
     }
 }, {
     tabBarOptions: {
-        activeTintColor: '#A5DB55',
+        activeTintColor: '#ff414e',
         inactiveTintColor: '#fff', 
         showIcon: true,
-        tabStyle: {backgroundColor: "#333", height: 100, borderTopWidth: 0.125, borderTopColor: "#fff"},
+        tabStyle: {backgroundColor: "#7EB09B", height: 100, borderTopWidth: 0.125, borderTopColor: "#fff"},
 
     }
 })

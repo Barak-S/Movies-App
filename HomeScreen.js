@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, TextInput } from 'react-native';
+import { StyleSheet, View, TextInput, Text } from 'react-native';
 import WatchLater from './WatchLater';
 import MovieContainer from './MoviesContainer'
 import { Ionicons } from '@expo/vector-icons'
@@ -14,18 +14,26 @@ export default class HomeScreen extends React.Component {
   state={
     searchTerm: 'Enter a Movie...',
     movies: [],
-    watchLater: []
+    watchLater: [],
+    error: ""
   }
 
 
   handleSubmit =()=> {
     fetch(`${apiUrl}&s=${this.state.searchTerm.split(" ").join("&")}`)
-    .then(resp=>resp.json())
+
+    .then(resp=> resp.json())
     .then(data => {
-      this.setState({
-        movies: data.Search
-      })
+      if(data["Response"] === "True"){
+        this.setState({
+          movies: data.Search,
+          error: ""
+        })
+      } else if(data["Response"] === "False"){
+        this.setState({ movies: [], error: "No Movies Found"})
+      }
     })
+
   }
 
   handleChange = text => {
@@ -123,6 +131,7 @@ export default class HomeScreen extends React.Component {
             </View>
                 :
             <WatchLater
+                error={this.state.error}
                 watchLater={this.state.watchLater}
                 remove={this.removeFromWatchLater}
                 userId={this.props.screenProps.userId}

@@ -11,7 +11,7 @@ export default class Profile extends React.Component{
         return(
             <View style={styles.container}>
                 <Text style={{color: '#333', fontSize: 29, fontWeight: '600', color: '#fff', marginBottom: 9 }}>Hi {this.props.screenProps.username}!</Text>
-                <View style={{borderBottomWidth: 2.125, borderBottomColor: '#A5DB55', width: 400}}></View>
+                <View style={{borderBottomWidth: 2.125, borderBottomColor: '#7EB09B', width: 400}}></View>
                 <TouchableHighlight style={styles.addFriends} onPress={()=>this.props.navigation.navigate('AddFriends')}>
                     <View>
                         <Text style={{textAlign: "center", fontSize: 19, fontWeight:'700', color: "#fff"}}> 
@@ -49,20 +49,20 @@ const styles= StyleSheet.create({
     logOut:{
         padding: 13,
         marginTop: 75,
-        backgroundColor: '#A5DB55',
+        backgroundColor: '#7EB09B',
         borderRadius: 10,
     },
     addFriends:{
         padding: 6,
         marginTop: 43,
-        backgroundColor: '#A5DB55',
+        backgroundColor: '#7EB09B',
         borderRadius: 10,
         alignContent: 'flex-start',
     },
     friends:{
         padding:13,
         marginTop: 20,
-        backgroundColor: '#A5DB55',
+        backgroundColor: '#7EB09B',
         borderRadius: 10,
         alignContent: 'flex-start',
     }

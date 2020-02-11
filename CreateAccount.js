@@ -80,7 +80,7 @@ const styles= StyleSheet.create({
     login:{
         padding: 13,
         margin: 30,
-        backgroundColor: '#A5DB55',
+        backgroundColor: '#ff414e',
         borderRadius: 10,
     }
 
