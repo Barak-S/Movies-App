@@ -22,7 +22,7 @@ export default class WatchLater extends React.Component{
 
     render(){
 
-      let view = this.props.error !== "" ? <Text style={{fontSize: 22, fontWeight: "500", color: "red", textAlign: "center" }}>{this.props.error}</Text> : null 
+      let view = this.props.error !== "" ? <Text style={{fontSize: 22, fontWeight: "500", color: "#ff414e", textAlign: "center" }}>{this.props.error}</Text> : null 
 
         return (
             <View>

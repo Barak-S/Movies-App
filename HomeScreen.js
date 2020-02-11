@@ -116,7 +116,7 @@ export default class HomeScreen extends React.Component {
             <View>
             <Ionicons
               name='ios-arrow-dropleft'
-              size={32}
+              size={35}
               style={styles.homeIcon}
               onPress={()=> this.clearMovies()}
 
