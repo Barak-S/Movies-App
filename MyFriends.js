@@ -26,7 +26,7 @@ export default class Profile extends React.Component{
         })
         .then(resp=> resp.json())
         .then(friends => this.setState({
-            friends: friends
+            friends: friends.sort((a, b) => a.username.localeCompare(b.username))
         }))
     }
 
@@ -122,7 +122,7 @@ const styles= StyleSheet.create({
       backgroundColor: '#333',
       alignItems: "center",
       justifyContent: 'flex-start',
-      paddingTop: 7,
+      paddingTop: 13.5,
     },
     results:{
         flex: 1,

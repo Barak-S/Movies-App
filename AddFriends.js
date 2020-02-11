@@ -21,7 +21,7 @@ export default class AddFriends extends React.Component{
         fetch(`${serverURL}/users/`)
         .then(resp=>resp.json())
         .then(users => this.setState({
-            result: users.filter(user => user.username.toLowerCase().includes(this.state.searchFriendTerm.toLowerCase()) && user.id !== this.props.screenProps.userId )
+            result: users.filter(user => user.username.toLowerCase().includes(this.state.searchFriendTerm.toLowerCase()) && user.id !== this.props.screenProps.userId ).sort((a, b) => a.username.localeCompare(b.username))
         }))
 
     }
