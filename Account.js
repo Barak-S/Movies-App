@@ -10,15 +10,15 @@ const Account = createStackNavigator({
         headerStyle: {
             backgroundColor: '#333',
           },
-        headerTitleStyle: { color: '#ffd700', fontSize: 19 },
+        headerTitleStyle: { color: '#A5DB55', fontSize: 19 },
     }), },
     CreateAccount:{screen: CreateAccount, navigationOptions: () => ({
         title: `Create Account`,
         headerStyle: {
             backgroundColor: '#333',
           },
-        headerTitleStyle: { color: '#ffd700', fontSize: 19 },
-        headerBackTitleStyle: { color: '#ffd700', fontSize: 17 }
+        headerTitleStyle: { color: '#A5DB55', fontSize: 19 },
+        headerBackTitleStyle: { color: '#A5DB55', fontSize: 17 }
     }),}
 })
 

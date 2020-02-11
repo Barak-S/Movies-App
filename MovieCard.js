@@ -29,10 +29,10 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   heading: {
-    color: '#333',
+    color: '#fff',
     fontSize: 18,
     fontWeight: '600',
     padding: 20,
-    backgroundColor: '#ffd700'
+    backgroundColor: '#ff414e'
   }
 })

@@ -194,7 +194,7 @@ export default class HomeScreen extends React.Component {
     homeIcon:{
       zIndex: 9,
       position: 'absolute',
-      color: '#ffd700',
+      color: '#ff414e',
   },
 
   })

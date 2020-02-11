@@ -6,7 +6,7 @@ import Account from './Account';
 const serverURL = 'http://2ed56f56.ngrok.io'
 // in APP, HOMESCREEN, MYFRIENDS, ADDFRIENDS
 // ./ngrok http 3000 -host-header="localhost:3000" command to run in terminal to load up ngrok server
-
+// Real project
 export default class App extends React.Component {
 
   state={

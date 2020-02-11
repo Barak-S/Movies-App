@@ -20,7 +20,7 @@ const HomeNav = createStackNavigator({
         headerStyle: {
             backgroundColor: '#333',
           },
-        headerTitleStyle: { color: '#ffd700', fontSize: 19 },
+        headerTitleStyle: { color: '#A5DB55', fontSize: 19 },
         headerBackTitle: null
       }), }
 })
@@ -31,23 +31,23 @@ const ProfileNav = createStackNavigator({
         headerStyle: {
             backgroundColor: '#333',
           },
-        headerTitleStyle: { color: '#ffd700', fontSize: 19 },
+        headerTitleStyle: { color: '#A5DB55', fontSize: 19 },
       }), },
     AddFriends:{screen: AddFriends, navigationOptions: () => ({
         title: `Add Friends`,
         headerStyle: {
             backgroundColor: '#333',
           },
-        headerTitleStyle: { color: '#ffd700', fontSize: 19 },
-        headerBackTitleStyle: { color: '#ffd700', fontSize: 17 }
+        headerTitleStyle: { color: '#A5DB55', fontSize: 19 },
+        headerBackTitleStyle: { color: '#A5DB55', fontSize: 17 }
       }),},
     MyFriends:{screen: MyFriends, navigationOptions: () => ({
         title: `My Friends`,
         headerStyle: {
             backgroundColor: '#333',
           },
-        headerTitleStyle: { color: '#ffd700', fontSize: 19 },
-        headerBackTitleStyle: { color: '#ffd700', fontSize: 17 }
+        headerTitleStyle: { color: '#A5DB55', fontSize: 19 },
+        headerBackTitleStyle: { color: '#A5DB55', fontSize: 17 }
       }),},
 })
 
@@ -57,7 +57,7 @@ const AboutNav = createStackNavigator({
         headerStyle: {
             backgroundColor: '#333',
           },
-        headerTitleStyle: { color: '#ffd700', fontSize: 19 },
+        headerTitleStyle: { color: '#A5DB55', fontSize: 19 },
       }), }
 })
 
@@ -106,7 +106,7 @@ const BottomNav = createBottomTabNavigator({
     }
 }, {
     tabBarOptions: {
-        activeTintColor: '#ffd700',
+        activeTintColor: '#A5DB55',
         inactiveTintColor: '#fff', 
         showIcon: true,
         tabStyle: {backgroundColor: "#333", height: 100, borderTopWidth: 0.125, borderTopColor: "#fff"},

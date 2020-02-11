@@ -53,7 +53,7 @@ export default class MovieContainer extends React.Component{
                         <Text style={styles.popTitle}>{this.state.selectedMovie.Title}</Text>
                         <Text style={{color: "#fff", fontSize: 20, marginBottom: 9 }}>Rating: {this.state.selectedMovie.imdbRating}</Text>
                         
-                        <TouchableHighlight onPress={()=>this.props.watchLater(this.state.selectedMovie)} style={{ width: 75, paddingBottom: 5, backgroundColor: '#ffd700', borderRadius: 10, height: 45, marginTop: 10}}>
+                        <TouchableHighlight onPress={()=>this.props.watchLater(this.state.selectedMovie)} style={{ width: 75, paddingBottom: 5, backgroundColor: '#ff414e', borderRadius: 10, height: 45, marginTop: 10}}>
                             <Text style={{color: '#333', fontSize: 20, fontWeight: '600', textAlign: "center", paddingTop: 9, paddingLeft: 5, paddingRight: 5 }}>Add +</Text>
                         </TouchableHighlight>
 
@@ -62,9 +62,9 @@ export default class MovieContainer extends React.Component{
                             style={{width: '100%', height: 465, marginTop: 30}}
                             resizeMode= "cover"
                         />
-                        <Text style={{color: "#fff", fontSize: 22, fontWeight: '600', marginTop: 20}}>Rated: {this.state.selectedMovie.Rated}</Text>
+                        <Text style={{color: "#ff414e", fontSize: 22, fontWeight: '600', marginTop: 20}}>Rated: {this.state.selectedMovie.Rated}</Text>
                         <Text style={{color: "#fff", fontSize: 18, fontWeight: '400', marginTop: 15}}>{this.state.selectedMovie.Plot}</Text>
-                        <Text style={{color: "#fff", fontSize: 20, fontWeight: '500', marginTop: 20}}>Actors: </Text>
+                        <Text style={{color: "#ff414e", fontSize: 20, fontWeight: '500', marginTop: 20}}>Actors: </Text>
                         <Text style={{color: "#fff", fontSize: 18, fontWeight: '400',}}>{this.state.selectedMovie.Actors}</Text>
                         <Text style={{color: "#fff", fontSize: 20, fontWeight: '400', marginTop: 20}}>Runtime: {this.state.selectedMovie.Runtime}</Text>
                         <Text style={{color: "#fff", fontSize: 20, fontWeight: '400', marginTop: 2}}>Year: {this.state.selectedMovie.Year}</Text>
@@ -93,7 +93,7 @@ const styles= StyleSheet.create({
 
     },
     title: {
-      color: '#ffd700',
+      color: '#ff414e',
       fontWeight: '700',
       fontSize: 32,
       textAlign: "center",
@@ -117,14 +117,14 @@ const styles= StyleSheet.create({
     popTitle:{
       fontSize: 29,
       fontWeight: '600',
-      color: '#ffd700',
+      color: '#ff414e',
     },
     closeBtn:{
       padding: 20,
       fontSize: 24,
       fontWeight: '600',
-      color: '#333',
-      backgroundColor: '#ffd700'
+      color: '#fff',
+      backgroundColor: '#ff414e'
     },
     backButton:{
       width: '100%',

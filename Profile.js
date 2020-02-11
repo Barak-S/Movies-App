@@ -10,26 +10,26 @@ export default class Profile extends React.Component{
 
         return(
             <View style={styles.container}>
-                <Text style={{color: '#333', fontSize: 29, fontWeight: '600', color: '#ffd700', marginBottom: 9 }}>Hi {this.props.screenProps.username}!</Text>
-                <View style={{borderBottomWidth: 1.5, borderBottomColor: '#ffd700', width: 400}}></View>
+                <Text style={{color: '#333', fontSize: 29, fontWeight: '600', color: '#fff', marginBottom: 9 }}>Hi {this.props.screenProps.username}!</Text>
+                <View style={{borderBottomWidth: 2.125, borderBottomColor: '#A5DB55', width: 400}}></View>
                 <TouchableHighlight style={styles.addFriends} onPress={()=>this.props.navigation.navigate('AddFriends')}>
                     <View>
-                        <Text style={{textAlign: "center", fontSize: 19, fontWeight:'700', color: "#333"}}> 
+                        <Text style={{textAlign: "center", fontSize: 19, fontWeight:'700', color: "#fff"}}> 
                             <Ionicons
                                 name='ios-person-add'
                                 size={32}
-                                style={{ marginTop: 10, color: "#333"}}
+                                style={{ marginTop: 10, color: "#fff"}}
                             
                             />  Add Friends</Text>
                     </View>
                 </TouchableHighlight>
 
                 <TouchableHighlight style={styles.friends} onPress={()=>this.props.navigation.navigate('MyFriends')}>
-                    <Text style={{textAlign: "center", fontSize: 19, fontWeight:'700', color: "#333"}}>My Friends</Text>
+                    <Text style={{textAlign: "center", fontSize: 19, fontWeight:'700', color: "#fff"}}>My Friends</Text>
                 </TouchableHighlight>
 
                 <TouchableHighlight style={styles.logOut} onPress={()=>this.props.screenProps.logOut()}>
-                    <Text style={{textAlign: "center", fontSize: 19, fontWeight:'700', color: "#333"}}>Log out</Text>
+                    <Text style={{textAlign: "center", fontSize: 19, fontWeight:'700', color: "#fff"}}>Log out</Text>
                 </TouchableHighlight>
 
             </View>
@@ -49,20 +49,20 @@ const styles= StyleSheet.create({
     logOut:{
         padding: 13,
         marginTop: 75,
-        backgroundColor: '#ffd700',
+        backgroundColor: '#A5DB55',
         borderRadius: 10,
     },
     addFriends:{
         padding: 6,
         marginTop: 43,
-        backgroundColor: '#ffd700',
+        backgroundColor: '#A5DB55',
         borderRadius: 10,
         alignContent: 'flex-start',
     },
     friends:{
         padding:13,
         marginTop: 20,
-        backgroundColor: '#ffd700',
+        backgroundColor: '#A5DB55',
         borderRadius: 10,
         alignContent: 'flex-start',
     }

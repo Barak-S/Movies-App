@@ -12,7 +12,7 @@ export default class Profile extends React.Component{
                 <Text style={{color: '#fff', fontSize: 20, fontWeight: '300' }}>React Native Movie Project App</Text>
                 <Text style={{color: '#fff', fontSize: 20, fontWeight: '300' }}>Created by: Barak Saidoff</Text>
                 <TouchableHighlight onPress={()=>this.props.screenProps.deleteAcc()}>
-                    <Text style={{textAlign: "center", fontSize: 19, fontWeight:'700', color: "#ffd700", marginTop: 75}}>Delete Account</Text>
+                    <Text style={{textAlign: "center", fontSize: 19, fontWeight:'700', color: "#A5DB55", marginTop: 75}}>Delete Account</Text>
                 </TouchableHighlight>
             </View>
         )

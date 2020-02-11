@@ -14,39 +14,34 @@ export default class AddFriends extends React.Component{
     swipeoutBtns = [
         {
           text: 'Delete',
-          backgroundColor: 'red',
+          backgroundColor: '#ff414e',
           onPress: () => this.props.removeFriend(this.props.friend.id )
         },
-        {
-            text: 'Message',
-            backgroundColor: 'orange',
-            
-        }
     ]
 
     render(){
 
         let view;
         this.props.removeFriend ?
-            view=<Swipeout right={this.swipeoutBtns} style={{backgroundColor: "#fff", height: 115}}>
+            view=<Swipeout right={this.swipeoutBtns} style={{backgroundColor: "#333", height: 115}}>
                     <View style={styles.container}>
                     <Text style={styles.title}>{this.props.username}</Text>
 
                     <Ionicons
                     name='ios-person'
                     size={35}
-                    style={{ marginTop: 10, color: "#ffd700",}}
+                    style={{ marginTop: 10, color: "#A5DB55",}}
                     onPress={() => this.props.selectFriend(this.props.friend)}
                     />
                     </View>
                 </Swipeout>
             :
-            view=<View style={{borderRadius: 10,borderWidth: 1.79,borderColor: '#ffd700',width: 385,height: 100,marginTop: 8,marginBottom: 8,alignItems: "center", justifyContent: 'flex-start'}}>
+            view=<View style={{borderRadius: 10,borderWidth: 1.79,borderColor: '#A5DB55',width: 385,height: 100,marginTop: 8,marginBottom: 8,alignItems: "center", justifyContent: 'flex-start'}}>
                     <Text style={styles.title}>{this.props.username}</Text>
                     <Ionicons
                     name='ios-person-add'
                     size={35}
-                    style={{ marginTop: 10, color: "#ffd700",}}
+                    style={{ marginTop: 10, color: "#A5DB55",}}
                     onPress={() => this.props.addFriend(this.props.id)}
                     />
                     </View>
@@ -65,7 +60,7 @@ const styles = StyleSheet.create({
     container: {
       borderRadius: 10,
       borderWidth: 2.79,
-      borderColor: '#ffd700',
+      borderColor: '#A5DB55',
       width: 385,
       height: 100,
       marginTop: 1,
@@ -75,7 +70,7 @@ const styles = StyleSheet.create({
     },
     title: {
       fontSize: 21,
-      color: '#333',
+      color: '#fff',
       fontWeight: 'bold',
       textAlign: 'center',
       marginTop: 11

@@ -12,7 +12,7 @@ export default class Login extends React.Component{
                 <Text style={{fontSize: 30, paddingTop: 85, marginBottom:40, fontWeight: '600', color: '#fff'}}>Log In</Text>
                 <TextInput
                     style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 10, marginBottom: 30}}
-                    onChangeText={(text)=> this.props.screenProps.handleUsername(text)} placeholder="Username" autoCapitalize = 'none'
+                    onChangeText={(text)=> this.props.screenProps.handleUsername(text)} placeholder="Username" 
                 />
                 <TextInput
                     style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 10, marginBottom: 7}}
@@ -73,7 +73,7 @@ const styles= StyleSheet.create({
     login:{
         padding: 13,
         margin: 30,
-        backgroundColor: '#ffd700',
+        backgroundColor: '#A5DB55',
         borderRadius: 10,
     }
 
