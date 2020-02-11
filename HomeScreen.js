@@ -51,7 +51,7 @@ export default class HomeScreen extends React.Component {
             method:"POST",
             headers: {
               'Accept': 'application/json',
-            'Content-Type': 'application/json'
+              'Content-Type': 'application/json'
             },
             body: JSON.stringify({ user_id: this.props.screenProps.userId, movie_id: data.id})
           }).then(resp=> resp.json())
@@ -60,7 +60,7 @@ export default class HomeScreen extends React.Component {
     ))
 
   }
-
+  // get users watch later on login
   componentDidMount(){
     fetch(`${serverURL}/users/${this.props.screenProps.userId}`)
     .then(resp=>resp.json())
@@ -73,11 +73,11 @@ export default class HomeScreen extends React.Component {
   removeFromWatchLater=(movie ,id)=> {
     fetch(`${serverURL}/watch_laters/find_and_delete`,{
       method:"POST",
-            headers: {
-              'Accept': 'application/json',
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({movie: movie, user_id:id})
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({movie: movie, user_id:id})
             
     })
     .then(resp=>resp.json())

@@ -5,10 +5,6 @@ import { Ionicons } from '@expo/vector-icons'
 
 export default class Profile extends React.Component{
 
-    state={
-        friends: []
-    }
-
 
     render(){
 

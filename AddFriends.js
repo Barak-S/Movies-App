@@ -39,7 +39,6 @@ export default class AddFriends extends React.Component{
     }
 
 
-
     render(){
 
         return(

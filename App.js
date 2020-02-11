@@ -5,7 +5,7 @@ import Account from './Account';
 
 const serverURL = 'http://2ed56f56.ngrok.io'
 // in APP, HOMESCREEN, MYFRIENDS, ADDFRIENDS
-// ./ngrok http 3000 -host-header="localhost:3000" command to run in terminal to load up ngrok
+// ./ngrok http 3000 -host-header="localhost:3000" command to run in terminal to load up ngrok server
 
 export default class App extends React.Component {
 
@@ -102,18 +102,20 @@ export default class App extends React.Component {
   render() {
     
     let view;
-    this.state.loggedIn ? view=<BottomNav screenProps={{userId: this.state.userId, 
-                                                        logOut: this.logOut, 
-                                                        username: this.state.username,
-                                                        deleteAcc: this.deleteAcc}}/> 
-                                                        : 
-                                                        view=<Account 
-                                                        screenProps={{
-                                                          handleLoginSubmit: this.handleLoginSubmit,
-                                                          handleCreateAccountSubmit: this.handleCreateAccountSubmit,
-                                                          handleUsername: this.handleUsername,
-                                                          handlePassword: this.handlePassword}}
-                                                        />
+    this.state.loggedIn ? 
+    view=<BottomNav 
+        screenProps={{userId: this.state.userId, 
+          logOut: this.logOut, 
+          username: this.state.username,
+          deleteAcc: this.deleteAcc}}/> 
+          : 
+    view=<Account 
+        screenProps={{
+          handleLoginSubmit: this.handleLoginSubmit,
+          handleCreateAccountSubmit: this.handleCreateAccountSubmit,
+          handleUsername: this.handleUsername,
+          handlePassword: this.handlePassword}}
+        />
 
     return (
 

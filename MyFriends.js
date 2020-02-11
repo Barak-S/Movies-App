@@ -40,6 +40,18 @@ export default class Profile extends React.Component{
         },()=> console.log(this.state.selectedFriend.movies))
     }
 
+    removeFriend=(friendID)=>{
+        fetch(`${serverURL}/follows/remove_friend`,{
+            method:"POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ follower_id: this.props.screenProps.userId,  followee_id: friendID})
+        }).then(resp=> resp.json())
+        .then(friends=>this.setState({ friends: friends }))
+    }
+
     clearFriend=()=>{
         this.setState({
             selectedFriend: {}
@@ -58,6 +70,7 @@ export default class Profile extends React.Component{
                             username={friend.username}
                             friend={friend}
                             selectFriend={this.selectFriend}
+                            removeFriend={this.removeFriend}
                             />
                         )
                     })}
@@ -106,7 +119,7 @@ export default class Profile extends React.Component{
 const styles= StyleSheet.create({
     container:{
       flex: 1,
-      backgroundColor: '#333',
+      backgroundColor: '#fff',
       alignItems: "center",
       justifyContent: 'flex-start',
       paddingTop: 7,
