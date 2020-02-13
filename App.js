@@ -100,6 +100,8 @@ export default class App extends React.Component {
   
   
   render() {
+
+    console.disableYellowBox = true
     
     let view;
     this.state.loggedIn ? 

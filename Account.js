@@ -18,7 +18,8 @@ const Account = createStackNavigator({
             backgroundColor: '#7EB09B',
           },
         headerTitleStyle: { color: '#fff', fontSize: 21 },
-        headerBackTitleStyle: { color: '#ff414e', fontSize: 19 }
+        headerBackTitleStyle: { color: '#ff414e', fontSize: 19 },
+        headerTintColor: '#ff414e'
     }),}
 })
 

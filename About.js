@@ -15,7 +15,7 @@ export default class Profile extends React.Component{
                 <Text style={{color: '#fff', fontSize: 20, fontWeight: '300' }}>Front-End: React Native </Text>
                 <Text style={{color: '#fff', fontSize: 20, fontWeight: '300' }}>Back-End: Ruby on Rails </Text>
                 <Text style={{color: '#fff', fontSize: 20, fontWeight: '300', marginTop: 12 }}>PostgreSQL </Text>
-                <Text style={{color: '#fff', fontSize: 20, fontWeight: '300' }}>Ngrok for multiplatfrom tunneling </Text>
+                <Text style={{color: '#fff', fontSize: 20, fontWeight: '300' }}>Ngrok: for multi platfrom tunneling </Text>
 
                 <TouchableHighlight onPress={()=>Alert.alert('Are you sure?', 'This action cannot be undone',[{text: 'Cancel', onpress:()=> console.log("cancel"), style: 'cancel'}, {text: 'Delete', onPress:()=>this.props.screenProps.deleteAcc()},], 'secure-text')}>
                     <Text style={{textAlign: "center", fontSize: 20, fontWeight:'700', color: "#ff414e", marginTop: 115}}>Delete Account</Text>
@@ -25,8 +25,6 @@ export default class Profile extends React.Component{
         )
     }
 }
-
-// ()=>this.props.screenProps.deleteAcc()
 
 const styles= StyleSheet.create({
     container:{
