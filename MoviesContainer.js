@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, ScrollView, Image, TouchableHighlight, Modal } from 'react-native';
-
+import { InAppNotificationProvider } from 'react-native-in-app-notification';
+ 
 import MovieCard from './MovieCard'
 
 const apiUrl = "http://www.omdbapi.com/?apikey=a0514b1a"
@@ -43,18 +44,22 @@ export default class MovieContainer extends React.Component{
                 <View style={{height: 110}}></View>
 
                 </ScrollView>
+
+                
                 <Modal   
                     animationType= "slide"
                     transparent={false}
                     visible={(typeof this.state.selectedMovie.Title != "undefined") ? true : false}
                 >
+                    
                     <ScrollView>
                     <View style={styles.popup}>
                         <Text style={styles.popTitle}>{this.state.selectedMovie.Title}</Text>
                         <Text style={{color: "#fff", fontSize: 20, marginBottom: 9 }}>Rating: {this.state.selectedMovie.imdbRating}</Text>
                         
-                        <TouchableHighlight onPress={()=>this.props.watchLater(this.state.selectedMovie)} style={{ width: 75, paddingBottom: 5, backgroundColor: '#ff414e', borderRadius: 10, height: 45, marginTop: 10}}>
-                            <Text style={{color: '#333', fontSize: 20, fontWeight: '600', textAlign: "center", paddingTop: 9, paddingLeft: 5, paddingRight: 5 }}>Add +</Text>
+                        <TouchableHighlight onPress={()=>this.props.watchLater(this.state.selectedMovie)} 
+                          style={{ width: 75, paddingBottom: 5, backgroundColor: '#ff414e', borderRadius: 10, height: 45, marginTop: 10}}>
+                          <Text style={{color: '#333', fontSize: 20, fontWeight: '600', textAlign: "center", paddingTop: 9, paddingLeft: 5, paddingRight: 5 }}>Add +</Text>
                         </TouchableHighlight>
 
                         <Image
@@ -71,6 +76,7 @@ export default class MovieContainer extends React.Component{
 
                     </View>
                     </ScrollView>
+                    
 
                     <TouchableHighlight
                         onPress={()=> this.setState({ selectedMovie : {} })}
@@ -79,6 +85,7 @@ export default class MovieContainer extends React.Component{
                     </TouchableHighlight>
 
                 </Modal>
+
             </View>
         )
     }

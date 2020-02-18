@@ -115,7 +115,7 @@ export default class HomeScreen extends React.Component {
           <Ionicons
             name='ios-arrow-dropleft'
             size={35}
-            style={{position:'absolute', marginTop: 20, margin: 7.5, color: '#787878',}}
+            style={{position:'absolute', marginTop: 16, margin: 7.5, color: '#787878',}}
             onPress={()=> null}
           />
         }
@@ -201,21 +201,19 @@ const styles= StyleSheet.create({
   },
   homeIcon:{
     position: 'absolute',
-    marginTop: 20,
+    marginTop: 16,
     margin: 7.5,
     color: '#ff414e',
   },
   searchBox:{
     fontSize: 21,
     padding: 20,
-    marginTop: 5,
     width: '88%',
     backgroundColor: '#fff',
     borderRadius: 15,
-    marginBottom: 15,
+    marginBottom: 10,
     marginLeft: "10%",
     marginRight: 8
-
   },
 
 })
