@@ -6,7 +6,7 @@ import { Ionicons } from '@expo/vector-icons'
 
 const apiUrl = "http://www.omdbapi.com/?apikey=a0514b1a"
 
-const serverURL = 'http://2ed56f56.ngrok.io'
+const serverURL = 'http://2f7e7e82.ngrok.io'
 
 export default class HomeScreen extends React.Component {
 
@@ -103,107 +103,119 @@ export default class HomeScreen extends React.Component {
 
     return (
       
-        <View style={styles.container}>
+      <View style={styles.container}>
+        <View style={{flexDirection: "row"}}>
+          {this.state.movies.length !== 0 ? <Ionicons
+            name='ios-arrow-dropleft'
+            size={35}
+            style={styles.homeIcon}
+            onPress={()=> this.clearMovies()}
+          />
+        :
+          <Ionicons
+            name='ios-arrow-dropleft'
+            size={35}
+            style={{position:'absolute', marginTop: 20, margin: 7.5, color: '#787878',}}
+            onPress={()=> null}
+          />
+        }
 
-            <TextInput
-            style={styles.searchBox}
-            placeholder={this.state.searchTerm}
-            autoCapitalize = 'none'
-            onChangeText={(text)=> this.handleChange(text)}
-            onSubmitEditing={this.handleSubmit}
-            />
-            {this.state.movies.length !== 0 ?
-            <View>
-            <Ionicons
-              name='ios-arrow-dropleft'
-              size={35}
-              style={styles.homeIcon}
-              onPress={()=> this.clearMovies()}
+          <TextInput
+          style={styles.searchBox}
+          placeholder={this.state.searchTerm}
+          autoCapitalize = 'none'
+          onChangeText={(text)=> this.handleChange(text)}
+          onSubmitEditing={this.handleSubmit}
+          />
+        </View>
+        {this.state.movies.length !== 0 ?
+        <View>
+          <MovieContainer
+              movies={this.state.movies}
+              clearMovies={this.clearMovies}
+              watchLater={this.watchLater}
+              userId={this.props.screenProps.userId}
 
-            />
-            <MovieContainer
-                movies={this.state.movies}
-                clearMovies={this.clearMovies}
-                watchLater={this.watchLater}
-                userId={this.props.screenProps.userId}
-
-            />
-            </View>
-                :
-            <WatchLater
-                error={this.state.error}
-                watchLater={this.state.watchLater}
-                remove={this.removeFromWatchLater}
-                userId={this.props.screenProps.userId}
-                
-            />
-            }
-        </View> 
-      )
-    }
-      
+          />
+        </View>
+            :
+          <WatchLater
+              error={this.state.error}
+              watchLater={this.state.watchLater}
+              remove={this.removeFromWatchLater}
+              userId={this.props.screenProps.userId}
+              
+          />
+          }
+      </View> 
+    )
   }
+    
+}
 
 
-  const styles= StyleSheet.create({
-    container:{
-      flex: 1,
-      backgroundColor: '#333',
-      alignItems: "center",
-      justifyContent: 'flex-start',
-      paddingTop: 24
-    },
-    title: {
-      color: '#ffd700',
-      fontWeight: '700',
-      fontSize: 32,
-      textAlign: "center",
-      marginBottom: 20
-    },
-    searchBox:{
-      fontSize: 21,
-      padding: 20,
-      marginTop: 5,
-      width: '92%',
-      backgroundColor: '#fff',
-      borderRadius: 15,
-      marginBottom: 17
-    },
-    results: {
-      flex: 1,
-    },
-    popup: {
-      padding: 50,
-      backgroundColor: '#333',
-      flex:1,
-    },
-    popTitle:{
-      fontSize: 29,
-      fontWeight: '600',
-      color: '#ff414e',
-    },
-    closeBtn:{
-      padding: 20,
-      fontSize: 24,
-      fontWeight: '600',
-      color: '#fff',
-      backgroundColor: '#ff414e'
-    },
-    backButton:{
-      width: '100%',
-      height: 45,
-      backgroundColor: '#ff414e'
-    },
-    watchLater:{
-        padding: 15,
-        margin: 30,
-        backgroundColor: '#ff414e',
-        borderRadius: 10,
-    },
-    homeIcon:{
-      zIndex: 9,
-      position: 'absolute',
-      color: '#ff414e',
+const styles= StyleSheet.create({
+  container:{
+    flex: 1,
+    backgroundColor: '#333',
+    alignItems: "center",
+    paddingTop: 19
+  },
+  title: {
+    color: '#ffd700',
+    fontWeight: '700',
+    fontSize: 32,
+    textAlign: "center",
+    marginBottom: 20
+  },
+  results: {
+    flex: 1,
+  },
+  popup: {
+    padding: 50,
+    backgroundColor: '#333',
+    flex:1,
+  },
+  popTitle:{
+    fontSize: 29,
+    fontWeight: '600',
+    color: '#ff414e',
+  },
+  closeBtn:{
+    padding: 20,
+    fontSize: 24,
+    fontWeight: '600',
+    color: '#fff',
+    backgroundColor: '#ff414e'
+  },
+  backButton:{
+    width: '100%',
+    height: 45,
+    backgroundColor: '#ff414e'
+  },
+  watchLater:{
+      padding: 15,
+      margin: 30,
+      backgroundColor: '#ff414e',
+      borderRadius: 10,
+  },
+  homeIcon:{
+    position: 'absolute',
+    marginTop: 20,
+    margin: 7.5,
+    color: '#ff414e',
+  },
+  searchBox:{
+    fontSize: 21,
+    padding: 20,
+    marginTop: 5,
+    width: '88%',
+    backgroundColor: '#fff',
+    borderRadius: 15,
+    marginBottom: 15,
+    marginLeft: "10%",
+    marginRight: 8
+
   },
 
-  })
+})

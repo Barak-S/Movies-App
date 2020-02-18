@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons'
 import ProfileCard from './ProfileCard'
 import MovieCard from './MovieCard'
 
-const serverURL = 'http://2ed56f56.ngrok.io'
+const serverURL = 'http://2f7e7e82.ngrok.io'
 
 
 export default class Profile extends React.Component{

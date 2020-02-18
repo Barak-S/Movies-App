@@ -17,6 +17,10 @@ export default class AddFriends extends React.Component{
           backgroundColor: '#ff414e',
           onPress: () => this.props.removeFriend(this.props.friend.id )
         },
+        {
+          text: 'Message',
+          backgroundColor: '#7EB09B',
+        }
     ]
 
     render(){
