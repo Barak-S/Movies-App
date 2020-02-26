@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, TextInput, Text } from 'react-native';
+import { StyleSheet, View, TextInput, StatusBar } from 'react-native';
 import WatchLater from './WatchLater';
 import MovieContainer from './MoviesContainer'
 import { Ionicons } from '@expo/vector-icons'
@@ -104,6 +104,7 @@ export default class HomeScreen extends React.Component {
     return (
       
       <View style={styles.container}>
+        <StatusBar barStyle="light-content" />
         <View style={{flexDirection: "row"}}>
           {this.state.movies.length !== 0 ? <Ionicons
             name='ios-arrow-dropleft'

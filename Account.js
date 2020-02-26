@@ -11,6 +11,7 @@ const Account = createStackNavigator({
             backgroundColor: '#7EB09B',
           },
         headerTitleStyle: { color: '#fff', fontSize: 21 },
+        
     }), },
     CreateAccount:{screen: CreateAccount, navigationOptions: () => ({
         title: `Create Account`,

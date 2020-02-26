@@ -9,7 +9,8 @@ export default class Login extends React.Component{
         return(
             
             <View style={styles.container}>
-                <Text style={{fontSize: 30, paddingTop: 85, marginBottom:40, fontWeight: '600', color: '#fff'}}>Create Account</Text>
+                <Text style={{fontSize: 30, paddingTop: 85, marginBottom:30, fontWeight: '600', color: '#fff'}}>Create Account</Text>
+                <Text style={{fontSize: 22, color: '#ff414e', marginBottom: 10}}>{this.props.screenProps.error !== ''? 'username already exists':null}</Text>
                 <TextInput
                     style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 10, marginBottom: 35}}
                     onChangeText={(text)=> this.props.screenProps.handleUsername(text)} placeholder="Username" autoCapitalize = 'none'

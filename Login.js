@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableHighlight, StatusBar } from 'react-native';
 
 
 export default class Login extends React.Component{
@@ -9,7 +9,9 @@ export default class Login extends React.Component{
         return(
             
             <View style={styles.container}>
-                <Text style={{fontSize: 30, paddingTop: 85, marginBottom:40, fontWeight: '600', color: '#fff'}}>Log In</Text>
+              <StatusBar barStyle="light-content" />
+                <Text style={{fontSize: 30, paddingTop: 85, marginBottom:30, fontWeight: '600', color: '#fff'}}>Log In</Text>
+                <Text style={{fontSize: 22, color: '#ff414e', marginBottom: 10}}>{this.props.screenProps.error !== ''? 'username or password incorrect':null}</Text>
                 <TextInput
                     style={{fontSize: 20, padding: 12, width: '55%', backgroundColor: '#fff', borderRadius: 10, marginBottom: 30}}
                     onChangeText={(text)=> this.props.screenProps.handleUsername(text)} placeholder="Username" 

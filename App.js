@@ -14,6 +14,7 @@ export default class App extends React.Component {
     username: '',
     password: '',
     userId: {},
+    error: ''
   }
 
   handleUsername= text => {
@@ -29,8 +30,8 @@ export default class App extends React.Component {
   }
 
   handleCreateAccountSubmit=()=>{
-    if(this.state.username === "" || this.state.password ===""){
-      null
+    if(this.state.username === "" || this.state.password === ""){
+      this.setState({error: 'error'})
     } else{
       fetch(`${serverURL}/users/`,{
         headers: {
@@ -54,7 +55,7 @@ export default class App extends React.Component {
 
   handleLoginSubmit=()=>{
     if(this.state.username === "" || this.state.password ===""){
-      null
+      this.setState({error: 'error'})
     } else{
       fetch(`${serverURL}/users/find_my_account`,{
         headers: {
@@ -116,7 +117,8 @@ export default class App extends React.Component {
           handleLoginSubmit: this.handleLoginSubmit,
           handleCreateAccountSubmit: this.handleCreateAccountSubmit,
           handleUsername: this.handleUsername,
-          handlePassword: this.handlePassword}}
+          handlePassword: this.handlePassword,
+          error: this.state.error}}
         />
 
     return (
