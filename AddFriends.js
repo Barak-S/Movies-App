@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text, TextInput, ScrollView } from 'react-native';
 import ProfileCard from './ProfileCard'
 
-const serverURL = 'http://2f7e7e82.ngrok.io'
+const serverURL = 'http://3d1376b7.ngrok.io'
 
 export default class AddFriends extends React.Component{
 

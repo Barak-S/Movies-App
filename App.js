@@ -3,7 +3,7 @@ import Navigator from './routes/Drawer'
 import BottomNav from './routes/TabNav'
 import Account from './Account';
 
-const serverURL = 'http://2f7e7e82.ngrok.io'
+const serverURL = 'http://3d1376b7.ngrok.io'
 // in APP, HOMESCREEN, MYFRIENDS, ADDFRIENDS
 // ./ngrok http 3000 -host-header="localhost:3000" command to run in terminal to load up ngrok server
 // Real project

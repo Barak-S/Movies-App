@@ -6,7 +6,7 @@ import { Ionicons } from '@expo/vector-icons'
 
 const apiUrl = "http://www.omdbapi.com/?apikey=a0514b1a"
 
-const serverURL = 'http://2f7e7e82.ngrok.io'
+const serverURL = 'http://3d1376b7.ngrok.io'
 
 export default class HomeScreen extends React.Component {
 
